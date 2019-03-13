@@ -1,1 +1,2422 @@
-
+diff -Naur original/SWTOOLS/antivirus/NORTONIS/ALL/MODULECUST/SETUP.CMD modified/SWTOOLS/antivirus/NORTONIS/ALL/MODULECUST/SETUP.CMD
+--- original/SWTOOLS/antivirus/NORTONIS/ALL/MODULECUST/SETUP.CMD	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWTOOLS/antivirus/NORTONIS/ALL/MODULECUST/SETUP.CMD	2019-03-07 05:47:52.960757787 -0900
+@@ -1,4 +1,5 @@
+ REM Preinstall NIS 2012 30Days
++GOTO END
+ Setup.exe /qr /showgadget 0 /toolbarmode 1 /turbo 1 /desktopicon 0 /count 4
+ 
+ 
+diff -Naur original/SWTOOLS/Apps/Adobe/AdobeReader/MODULECUST/InstallAdbeRdrX.cmd modified/SWTOOLS/Apps/Adobe/AdobeReader/MODULECUST/InstallAdbeRdrX.cmd
+--- original/SWTOOLS/Apps/Adobe/AdobeReader/MODULECUST/InstallAdbeRdrX.cmd	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWTOOLS/Apps/Adobe/AdobeReader/MODULECUST/InstallAdbeRdrX.cmd	2019-03-07 05:48:45.477509855 -0900
+@@ -1,5 +1,5 @@
+ REM Installs Adobe Reader
+-
++GOTO END
+ IF EXIST C:\swwork\MLPS.TAG GOTO MLPS
+ 
+ start /w msiexec /i "C:\SWTOOLS\Apps\Adobe\AdobeReader\AcroRead.msi" DISABLEDESKTOPSHORTCUT="1" /qn
+diff -Naur original/SWTOOLS/Apps/Adobe/AdobeReader/MODULECUST/SetupMUI.cmd modified/SWTOOLS/Apps/Adobe/AdobeReader/MODULECUST/SetupMUI.cmd
+--- original/SWTOOLS/Apps/Adobe/AdobeReader/MODULECUST/SetupMUI.cmd	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWTOOLS/Apps/Adobe/AdobeReader/MODULECUST/SetupMUI.cmd	2019-03-07 05:49:07.885833151 -0900
+@@ -1,5 +1,5 @@
+ REM Installs Adobe Reader
+-
++GOTO END
+ PUSHD "C:\Program Files\MLPS\apps\Adobe\AdobeReader"
+ start /w msiexec /i "C:\Program Files\MLPS\apps\Adobe\AdobeReader\AcroRead.msi" /qn
+ popd
+diff -Naur original/SWTOOLS/Apps/DMFSD/Utilities/LS_1.4.124.1/Install.bat modified/SWTOOLS/Apps/DMFSD/Utilities/LS_1.4.124.1/Install.bat
+--- original/SWTOOLS/Apps/DMFSD/Utilities/LS_1.4.124.1/Install.bat	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWTOOLS/Apps/DMFSD/Utilities/LS_1.4.124.1/Install.bat	2019-03-07 05:49:40.406304718 -0900
+@@ -1 +1,3 @@
+-msiexec.exe /I LS_HSI.msi /qn UPDATE_SHELL_COMMAND="www.intervideo.com" SOURCELIST="%CommonProgramFiles%\LightScribe" TRANSFORMS="1033.mst"
+\ No newline at end of file
++GOTO END
++msiexec.exe /I LS_HSI.msi /qn UPDATE_SHELL_COMMAND="www.intervideo.com" SOURCELIST="%CommonProgramFiles%\LightScribe" TRANSFORMS="1033.mst"
++:END
+\ No newline at end of file
+diff -Naur original/SWTOOLS/Apps/Evernote/Evernote-Install-for-Lenovo.cmd modified/SWTOOLS/Apps/Evernote/Evernote-Install-for-Lenovo.cmd
+--- original/SWTOOLS/Apps/Evernote/Evernote-Install-for-Lenovo.cmd	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWTOOLS/Apps/Evernote/Evernote-Install-for-Lenovo.cmd	2019-03-07 05:50:01.666614452 -0900
+@@ -1,5 +1,7 @@
+-rem Install Evernote for Lenovo
+-
++rem Install Evernote for Lenovo
++GOTO END
+ regedit /s Evernote-for-Lenovo.reg
+-
+Evernote_4.2.3.15.exe /quiet /lv* C:\Windows\Temp\Evernote-install.log NODESKTOPSHORTCUT=1
++
++Evernote_4.2.3.15.exe /quiet /lv* C:\Windows\Temp\Evernote-install.log NODESKTOPSHORTCUT=1
++
++:END
+\ No newline at end of file
+diff -Naur "original/SWTOOLS/Apps/Symantec VIP/Intel_IPT_Installer/install.bat" "modified/SWTOOLS/Apps/Symantec VIP/Intel_IPT_Installer/install.bat"
+--- "original/SWTOOLS/Apps/Symantec VIP/Intel_IPT_Installer/install.bat"	2019-03-06 22:05:54.799577751 -0900
++++ "modified/SWTOOLS/Apps/Symantec VIP/Intel_IPT_Installer/install.bat"	2019-03-07 05:55:47.631780285 -0900
+@@ -1,4 +1,6 @@
+ @echo off
++GOTO END
+ Setup_Intel_IPT_1.2.22.0.exe /S /v/q /v"/L*v ipt_install_log.txt"
+ IF %ERRORLEVEL% == 0 ECHO Intel IPT installed successfully
+-IF NOT %ERRORLEVEL% == 0 ECHO Intel IPT install failed
+\ No newline at end of file
++IF NOT %ERRORLEVEL% == 0 ECHO Intel IPT install failed
++:END
+\ No newline at end of file
+diff -Naur "original/SWTOOLS/Apps/WiMAX Tutorial Video Gadget/WiMAXDemo.bat" "modified/SWTOOLS/Apps/WiMAX Tutorial Video Gadget/WiMAXDemo.bat"
+--- "original/SWTOOLS/Apps/WiMAX Tutorial Video Gadget/WiMAXDemo.bat"	2019-03-06 22:05:54.799577751 -0900
++++ "modified/SWTOOLS/Apps/WiMAX Tutorial Video Gadget/WiMAXDemo.bat"	2019-03-07 05:56:07.712085766 -0900
+@@ -1 +1,3 @@
+-msiexec /qn /i "CLEAR WiMAX Tutorial.msi" VISTAGADGETGALLERYONLY=1 WIMAXADAPTERDETECT=1 /l TutorialLog.txt
+\ No newline at end of file
++GOTO END
++msiexec /qn /i "CLEAR WiMAX Tutorial.msi" VISTAGADGETGALLERYONLY=1 WIMAXADAPTERDETECT=1 /l TutorialLog.txt
++:END
+\ No newline at end of file
+diff -Naur original/SWTOOLS/DRIVERS/ETHINTEL/APPS/SETUP/PUSH/pushcopy.bat modified/SWTOOLS/DRIVERS/ETHINTEL/APPS/SETUP/PUSH/pushcopy.bat
+--- original/SWTOOLS/DRIVERS/ETHINTEL/APPS/SETUP/PUSH/pushcopy.bat	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWTOOLS/DRIVERS/ETHINTEL/APPS/SETUP/PUSH/pushcopy.bat	2019-03-07 05:59:09.578872056 -0900
+@@ -1,4 +1,5 @@
+ @echo off
++GOTO END
+ rem *******************************************************************************
+ rem Make sure we are in the right directory
+ rem *******************************************************************************
+diff -Naur original/SWTOOLS/DRIVERS/ETHINTEL/APPS/SETUP/PUSH/Win32/Install.bat modified/SWTOOLS/DRIVERS/ETHINTEL/APPS/SETUP/PUSH/Win32/Install.bat
+--- original/SWTOOLS/DRIVERS/ETHINTEL/APPS/SETUP/PUSH/Win32/Install.bat	2019-03-06 22:05:54.803577838 -0900
++++ modified/SWTOOLS/DRIVERS/ETHINTEL/APPS/SETUP/PUSH/Win32/Install.bat	2019-03-07 05:57:06.544983458 -0900
+@@ -1,4 +1,6 @@
++GOTO END
+ Start /wait %systemdrive%\drivers\net\INTEL\APPS\ProsetDX\Win32\PROSetDX.msi /qn /li %temp%\PROSetDX.log
+ REM Uncomment the next line if VLANs or Teams are to be installed.
+ REM Start /wait /b cscript %systemdrive%\wmiscr\SavResDX.vbs restore %systemdrive%\wmiscr\wmiconf.txt > %systemdrive%\wmiscr\output.txt
+-exit
+\ No newline at end of file
++exit
++:END
+\ No newline at end of file
+diff -Naur original/SWTOOLS/DRIVERS/ETHINTEL/APPS/SETUP/PUSH/Winx64/Install.bat modified/SWTOOLS/DRIVERS/ETHINTEL/APPS/SETUP/PUSH/Winx64/Install.bat
+--- original/SWTOOLS/DRIVERS/ETHINTEL/APPS/SETUP/PUSH/Winx64/Install.bat	2019-03-06 22:05:54.803577838 -0900
++++ modified/SWTOOLS/DRIVERS/ETHINTEL/APPS/SETUP/PUSH/Winx64/Install.bat	2019-03-07 05:57:24.009250654 -0900
+@@ -1,4 +1,6 @@
++GOTO END
+ Start /wait %systemdrive%\drivers\net\INTEL\APPS\ProsetDX\Winx64\PROSetDX.msi /qn /li %temp%\PROSetDX.log
+ REM Uncomment the next line if VLANs or Teams are to be installed.
+ REM Start /wait /b cscript %systemdrive%\wmiscr\SavResDX.vbs restore %systemdrive%\wmiscr\wmiconf.txt > %systemdrive%\wmiscr\output.txt
+-exit
+\ No newline at end of file
++exit
++:END
+\ No newline at end of file
+diff -Naur original/SWTOOLS/DRIVERS/RapidBoot/setup.cmd modified/SWTOOLS/DRIVERS/RapidBoot/setup.cmd
+--- original/SWTOOLS/DRIVERS/RapidBoot/setup.cmd	2019-03-06 22:05:54.803577838 -0900
++++ modified/SWTOOLS/DRIVERS/RapidBoot/setup.cmd	2019-03-07 06:00:13.483858153 -0900
+@@ -1,3 +1,4 @@
++GOTO END
+ :BATCH_START
+ 
+ @echo off
+@@ -72,3 +73,4 @@
+ 
+ endlocal
+ 
++:END
+\ No newline at end of file
+diff -Naur original/SWTOOLS/LenovoWelcome/Install.cmd modified/SWTOOLS/LenovoWelcome/Install.cmd
+--- original/SWTOOLS/LenovoWelcome/Install.cmd	2019-03-06 22:05:54.803577838 -0900
++++ modified/SWTOOLS/LenovoWelcome/Install.cmd	2019-03-07 06:01:46.709301934 -0900
+@@ -3,7 +3,7 @@
+ REM /* Date: 10/05/06 */
+ REM /* Last Revision: 05/04/09 */
+ REM /* This product is property of Lenovo and may not be distributed outside Lenovo. */
+-
++GOTO END
+ IF EXIST "%ProgramFiles%\Lenovo\Lenovo Welcome\LW062010.tag" GOTO END
+ IF EXIST "%ProgramFiles(x86)%\Lenovo\Lenovo Welcome\LW062010.tag" GOTO END
+ 
+@@ -30,8 +30,8 @@
+ :FAIL
+ echo Message from Lenovo Welcome ...There was a problem with updating unattend.xml
+ 
+-:END
+ RD /s /Q C:\SWTools\LenovoWelcome\Tools\
+ DEL /Q C:\SWTools\LenovoWelcome\AddBlock*.xml
+ DEL /Q C:\SWTools\LenovoWelcome\Lenovo*.xml
+-DEL %0
+\ No newline at end of file
++DEL %0
++:END
+\ No newline at end of file
+diff -Naur original/SWTOOLS/readyapps/usrguide/UGsetup.bat modified/SWTOOLS/readyapps/usrguide/UGsetup.bat
+--- original/SWTOOLS/readyapps/usrguide/UGsetup.bat	2019-03-06 22:05:54.803577838 -0900
++++ modified/SWTOOLS/readyapps/usrguide/UGsetup.bat	2019-03-07 06:02:13.757721864 -0900
+@@ -1,6 +1,6 @@
+ REM Setup BAT file to "install" the UserGuide
+ REM This BAT file will ONLY work in the preload
+-
++GOTO END
+ IF NOT DEFINED programdata set programdata="C:\Documents and Settings\All Users\Application Data"
+ 
+ :: Language detection
+diff -Naur original/SWTOOLS/skype/Skype_Setup.bat modified/SWTOOLS/skype/Skype_Setup.bat
+--- original/SWTOOLS/skype/Skype_Setup.bat	2019-03-06 22:05:54.803577838 -0900
++++ modified/SWTOOLS/skype/Skype_Setup.bat	2019-03-07 06:03:30.634917626 -0900
+@@ -1,4 +1,5 @@
+ REM Install Skype
++GOTO END
+ C:\SWTools\skype\Skype_Setup.exe
+ 
+ if exist "%ProgramFiles%\Skype\Phone\skype.exe" goto CONTINUE
+diff -Naur original/SWTOOLS/WindowsLive_2011/SetForDefaultUser.cmd modified/SWTOOLS/WindowsLive_2011/SetForDefaultUser.cmd
+--- original/SWTOOLS/WindowsLive_2011/SetForDefaultUser.cmd	2019-03-06 22:05:54.803577838 -0900
++++ modified/SWTOOLS/WindowsLive_2011/SetForDefaultUser.cmd	2019-03-07 06:04:05.379459039 -0900
+@@ -1,4 +1,5 @@
+ REM Load default user to reg hive
++GOTO END
+ If exist "%HOMEDRIVE%\Users\Default\NTUSER.DAT"  reg.exe load HKU\TempHive  "%HOMEDRIVE%\Users\Default\NTUSER.DAT"
+ If not exist "%HOMEDRIVE%\Users\Default\NTUSER.DAT"  reg.exe load HKU\TempHive  "%HOMEDRIVE%\Documents and Settings\Default User\NTUSER.DAT"
+ 
+@@ -8,4 +9,5 @@
+ 
+ :RegUnload
+ REM Unload default user hive
+-reg unload HKU\TempHive
+\ No newline at end of file
++reg unload HKU\TempHive
++:END
+\ No newline at end of file
+diff -Naur original/SWTOOLS/WindowsLive_2011/SETUP.CMD modified/SWTOOLS/WindowsLive_2011/SETUP.CMD
+--- original/SWTOOLS/WindowsLive_2011/SETUP.CMD	2019-03-06 22:05:54.803577838 -0900
++++ modified/SWTOOLS/WindowsLive_2011/SETUP.CMD	2019-03-07 06:05:20.728635053 -0900
+@@ -1,5 +1,5 @@
+ @ECHO OFF
+-
++GOTO END1
+ SET Command_Pre=WLSETUP.exe /q /appSelect:All,!FamilySafety,!Companion /language:
+ SET Command_Suf= /noMu /noSearch /noHomepage /oemid:MALC /msiparam:Messenger="MSGRFORMCODE=LEMBLM" /msiparam:PhotoGallery="FORCEDEFAULTSETTINGS=1"
+ SET Command_Lan=
+@@ -369,4 +369,5 @@
+ GOTO END
+ 
+ :END
+-DEL %0
+\ No newline at end of file
++DEL %0
++:END1
+\ No newline at end of file
+diff -Naur original/SWWORK/1STBOOT/DAD016B.cmd modified/SWWORK/1STBOOT/DAD016B.cmd
+--- original/SWWORK/1STBOOT/DAD016B.cmd	2019-03-06 22:05:54.755576805 -0900
++++ modified/SWWORK/1STBOOT/DAD016B.cmd	2019-03-07 06:13:09.007984178 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\1STBOOT\DAD016B.CMD
+ 
+-ECHO Fix for Issue of HDD with HDP Detection >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Fix for Issue of HDD with HDP Detection >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=DAD016B
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/1STBOOT/devicemeta.cmd modified/SWWORK/1STBOOT/devicemeta.cmd
+--- original/SWWORK/1STBOOT/devicemeta.cmd	2019-03-06 22:05:54.755576805 -0900
++++ modified/SWWORK/1STBOOT/devicemeta.cmd	2019-03-07 06:13:37.808437734 -0900
+@@ -1,5 +1,5 @@
+-echo copy lenovo DeviceMetadataStore >> c:\swwork\modules.log
+-
++echo Not copying lenovo DeviceMetadataStore >> c:\swwork\modules.log
++GOTO END
+ PUSHD C:\SWWORK\Metadata
+ 
+ XCOPY /S /E /Y /H /Q /I C:\SWWORK\Metadata\*.* C:\ProgramData\Microsoft\Windows\DeviceMetadataStore\en-US
+diff -Naur original/SWWORK/1STBOOT/DiskUpdate.cmd modified/SWWORK/1STBOOT/DiskUpdate.cmd
+--- original/SWWORK/1STBOOT/DiskUpdate.cmd	2019-03-06 22:05:54.755576805 -0900
++++ modified/SWWORK/1STBOOT/DiskUpdate.cmd	2019-03-07 06:13:59.832784663 -0900
+@@ -1,3 +1,4 @@
++GOTO END
+ schtasks /create /xml C:\SWTOOLS\OSFIXES\DISKUPDT\DiskUpdate.xml /tn DiskUpdate 
+ 
+ echo Complete DAD016B >>c:\swwork\Modules.log
+diff -Naur original/SWWORK/1STBOOT/DISKUPDT/DiskUpdate.bat modified/SWWORK/1STBOOT/DISKUPDT/DiskUpdate.bat
+--- original/SWWORK/1STBOOT/DISKUPDT/DiskUpdate.bat	2019-03-06 22:05:54.755576805 -0900
++++ modified/SWWORK/1STBOOT/DISKUPDT/DiskUpdate.bat	2019-03-07 06:15:11.093907643 -0900
+@@ -1 +1,3 @@
+-schtasks /create /xml C:\SWTOOLS\OSFIXES\DISKUPDT\DiskUpdate.xml /tn DiskUpdate 
+\ No newline at end of file
++GOTO END
++schtasks /create /xml C:\SWTOOLS\OSFIXES\DISKUPDT\DiskUpdate.xml /tn DiskUpdate 
++:END
+\ No newline at end of file
+diff -Naur original/SWWORK/1STBOOT/LR3GV4AX.CMD modified/SWWORK/1STBOOT/LR3GV4AX.CMD
+--- original/SWWORK/1STBOOT/LR3GV4AX.CMD	2019-03-06 22:05:54.755576805 -0900
++++ modified/SWWORK/1STBOOT/LR3GV4AX.CMD	2019-03-07 06:18:18.628865793 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\1STBOOT\LR3GV4AX.CMD
+ 
+-ECHO AppShopLauncher for Windows 7 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing AppShopLauncher for Windows 7 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3GV4AX
+ 
+ C:\SWTOOLS\AppShopLauncher\RegionValidator.exe
+diff -Naur original/SWWORK/1STBOOT/MSSupCaseNO.CMD modified/SWWORK/1STBOOT/MSSupCaseNO.CMD
+--- original/SWWORK/1STBOOT/MSSupCaseNO.CMD	2019-03-06 22:05:54.755576805 -0900
++++ modified/SWWORK/1STBOOT/MSSupCaseNO.CMD	2019-03-07 06:18:56.677466382 -0900
+@@ -1,5 +1,5 @@
+-ECHO Workaroung from IE Fav for MICROSOFT Support Case: SRZ080218000086 >>C:\SWWORK\Modules.log
+-
++ECHO Not instaling Workaroung from IE Fav for MICROSOFT Support Case: SRZ080218000086 >>C:\SWWORK\Modules.log
++GOTO END
+ reg query "HKEY_CURRENT_USER\Control Panel\International\Geo" /v Nation >C:\SWWORK\1STBOOT\IEFavlanguage.log
+ find "177" C:\SWWORK\1STBOOT\IEFavlanguage.log
+ if %ERRORLEVEL% == 0 goto NO
+diff -Naur original/SWWORK/1STBOOT/Theme1stbootFix.cmd modified/SWWORK/1STBOOT/Theme1stbootFix.cmd
+--- original/SWWORK/1STBOOT/Theme1stbootFix.cmd	2019-03-06 22:05:54.755576805 -0900
++++ modified/SWWORK/1STBOOT/Theme1stbootFix.cmd	2019-03-07 06:19:15.093757122 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\1STBOOT\Theme1stbootFix.CMD ; modified by RR on 07-14-2011
+ 
+-ECHO Theme Customization at 1st Boot >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Theme Customization at 1st Boot >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=Theme1stbootFix
+ if exist "C:\users\public\desktop\Internet Browser.lnk" del /Q "C:\users\public\desktop\Internet Browser.lnk"
+ if exist C:\users\public\desktop\*.lnk xcopy /Y "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome\Google Chrome.lnk" "c:\users\public\desktop\"
+diff -Naur original/SWWORK/ADOWORK0/DELFAV.CMD modified/SWWORK/ADOWORK0/DELFAV.CMD
+--- original/SWWORK/ADOWORK0/DELFAV.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/ADOWORK0/DELFAV.CMD	2019-03-07 06:21:46.524148693 -0900
+@@ -1,7 +1,7 @@
+ @ECHO OFF
+-ECHO DELFAV Command File to detect language and Delete Extra Favorite Links >>c:\swwork\modules.log
++ECHO Not doing DELFAV Command File to detect language and Delete Extra Favorite Links >>c:\swwork\modules.log
+ REM Command File to detect language and Delete Extra Favorite Links.
+-
++GOTO END
+ IF EXIST C:\SWWORK\ARA goto DELUSFAV
+ IF EXIST C:\SWWORK\BRZ goto DELUSFAV
+ IF EXIST C:\SWWORK\CZE goto DELUSFAV
+diff -Naur original/SWWORK/ADOWORK0/localeid.cmd modified/SWWORK/ADOWORK0/localeid.cmd
+--- original/SWWORK/ADOWORK0/localeid.cmd	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/ADOWORK0/localeid.cmd	2019-03-07 06:28:32.090559599 -0900
+@@ -1 +1 @@
+-IF EXIST C:\SWWORK\MLPS.TAG COPY /Y c:\SWWORK\LOCALIDFIX.CMD c:\SWWORK\1STBOOT
++::IF EXIST C:\SWWORK\MLPS.TAG COPY /Y c:\SWWORK\LOCALIDFIX.CMD c:\SWWORK\1STBOOT
+diff -Naur original/SWWORK/APP1/0VPOWER.CMD modified/SWWORK/APP1/0VPOWER.CMD
+--- original/SWWORK/APP1/0VPOWER.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP1/0VPOWER.CMD	2019-03-07 06:36:14.309871434 -0900
+@@ -1,5 +1,5 @@
+-ECHO Win7 ThinkPad Default Power Scheme CPP >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Win7 ThinkPad Default Power Scheme CPP >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=
+ 
+ PUSHD C:\SWWORK\POWER\
+diff -Naur original/SWWORK/APP1/checkrecovery.cmd modified/SWWORK/APP1/checkrecovery.cmd
+--- original/SWWORK/APP1/checkrecovery.cmd	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP1/checkrecovery.cmd	2019-03-07 06:38:23.271912003 -0900
+@@ -1,5 +1,7 @@
+ REM I check for recovery mode
+ REM put me in C:\swwork\APP1
++GOTO END
+ pushd c:\swwork\checkrecovery
+ call setup.cmd
+-popd
+\ No newline at end of file
++popd
++:END
+\ No newline at end of file
+diff -Naur original/SWWORK/APP1/LR39J2A2.CMD modified/SWWORK/APP1/LR39J2A2.CMD
+--- original/SWWORK/APP1/LR39J2A2.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP1/LR39J2A2.CMD	2019-03-07 06:39:29.124954052 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App1\LR39J2A2.CMD
+ 
+-ECHO DisplayLink Core Software for ThinkPad >>C:\SWWORK\Modules.log
+-
++ECHO Not installing DisplayLink Core Software for ThinkPad >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR39J2A2
+ 
+ PUSHD C:\SWTOOLS\APPS\DisplayLink\
+diff -Naur original/SWWORK/APP1/LR39W1A1.CMD modified/SWWORK/APP1/LR39W1A1.CMD
+--- original/SWWORK/APP1/LR39W1A1.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP1/LR39W1A1.CMD	2019-03-07 06:39:44.897203635 -0900
+@@ -1,5 +1,5 @@
+ :: REM CMD File Location = C:\SWWORK\App1\LR39W1A1.CMD
+-
++GOTO END
+ ECHO ThinkPad Power Manager -Install >>C:\SWWORK\Modules.log
+ 
+ Set MODNAME=LR39W1A1
+diff -Naur original/SWWORK/APP1/LR3PK9A1.CMD modified/SWWORK/APP1/LR3PK9A1.CMD
+--- original/SWWORK/APP1/LR3PK9A1.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP1/LR3PK9A1.CMD	2019-03-07 06:39:01.432515847 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App1\LR3PK9A1.CMD
+ 
+-ECHO ThinkPad Power Manager -Source >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkPad Power Manager -Source >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3PK9A1
+ 
+ PUSHD C:\swtools\readyapps\PWRMGRV\
+diff -Naur original/SWWORK/APP1/M7CBQ003.CMD modified/SWWORK/APP1/M7CBQ003.CMD
+--- original/SWWORK/APP1/M7CBQ003.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP1/M7CBQ003.CMD	2019-03-07 06:40:44.594148305 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\APP1\M7CBQ003.CMD
+ CLS
+-ECHO WIN7 .NET 4 Language Packs Install >>C:\SWWORK\Modules.log
+-
++ECHO Not installing WIN7 .NET 4 Language Packs Install >>C:\SWWORK\Modules.log
++GOTO END1
+ Call c:\SWWORK\APP1\QLangID.EXE
+ if not %ERRORLEVEL% == 0 goto KEYERR
+ Call c:\SWWORK\LangID.CMD
+@@ -46,4 +46,5 @@
+ :END 
+ if exist c:\swwork\APP1\DotNetLP del c:\swwork\APP1\DotNetLP\*.* /F /S /Q
+ if exist c:\swwork\APP1\DotNetLP RD c:\swwork\APP1\DotNetLP /S /Q
+-Set MODNAME=
+\ No newline at end of file
++Set MODNAME=
++:END1
+\ No newline at end of file
+diff -Naur original/SWWORK/APP1/ZREC65ZA.cmd modified/SWWORK/APP1/ZREC65ZA.cmd
+--- original/SWWORK/APP1/ZREC65ZA.cmd	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP1/ZREC65ZA.cmd	2019-03-07 06:41:17.114662934 -0900
+@@ -1,5 +1,5 @@
+-ECHO SM BUS/BIOS 1020 DRIVER PATCH for win7 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing SM BUS/BIOS 1020 DRIVER PATCH for win7 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=ZREC65ZA
+ 
+ PUSHD C:\SWTOOLS\drivers\SMBIOSDRV
+diff -Naur original/SWWORK/APP2/LROHGJA2.CMD modified/SWWORK/APP2/LROHGJA2.CMD
+--- original/SWWORK/APP2/LROHGJA2.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP2/LROHGJA2.CMD	2019-03-07 06:42:00.171344303 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App2\LROHGJA2.CMD ; modified by RR on 07-14-2011
+ 
+-ECHO Theme Customization >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Theme Customization >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LROHGJA2
+ 
+ PUSHD C:\Programdata\Lenovo\Themes\
+diff -Naur original/SWWORK/APP2/MyLenovoCloud.CMD modified/SWWORK/APP2/MyLenovoCloud.CMD
+--- original/SWWORK/APP2/MyLenovoCloud.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP2/MyLenovoCloud.CMD	2019-03-07 06:43:28.884748219 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App2\MyLenovoCloud.CMD
+ 
+-ECHO Add MyLenovoCloud link >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Add MyLenovoCloud link >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=MyLenovoCloud
+ 
+ PUSHD C:\Programdata\Lenovo\Themes\LenovoCloud\
+diff -Naur original/SWWORK/APP3/LR34P7A2.CMD modified/SWWORK/APP3/LR34P7A2.CMD
+--- original/SWWORK/APP3/LR34P7A2.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP3/LR34P7A2.CMD	2019-03-07 06:49:46.942731438 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App3\LR34P7A2.CMD
+ 
+-ECHO Google Desktop Additions >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Google Desktop Additions >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR34P7A2
+ 
+ IF NOT EXIST "%PROGRAMFILES%\Lenovo\" MD "%PROGRAMFILES%\Lenovo\"
+diff -Naur original/SWWORK/APP3/LR3JECA2.CMD modified/SWWORK/APP3/LR3JECA2.CMD
+--- original/SWWORK/APP3/LR3JECA2.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP3/LR3JECA2.CMD	2019-03-07 06:49:30.462470610 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App3\LR3JECA2.CMD
+ 
+-ECHO Lenovo Solution Center -Source >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Lenovo Solution Center -Source >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3JECA2
+ 
+ IF EXIST C:\SWWORK\NOACC.TAG GOTO DELSOURCE
+diff -Naur original/SWWORK/APP4/LR39Q1A1.CMD modified/SWWORK/APP4/LR39Q1A1.CMD
+--- original/SWWORK/APP4/LR39Q1A1.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP4/LR39Q1A1.CMD	2019-03-07 06:51:55.512766297 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App4\LR39Q1A1.CMD
+ 
+-ECHO ThinkVantage Communications Utility - Install >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkVantage Communications Utility - Install >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR39Q1A1
+ 
+ PUSHD C:\swtools\readyapps\tcomm\
+diff -Naur original/SWWORK/APP4/LR3B4MA1.CMD modified/SWWORK/APP4/LR3B4MA1.CMD
+--- original/SWWORK/APP4/LR3B4MA1.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP4/LR3B4MA1.CMD	2019-03-07 06:50:07.931063615 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App4\LR3B4MA1.CMD
+ 
+-ECHO ThinkVantage Communications Utility - Source >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkVantage Communications Utility - Source >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3B4MA1
+ 
+ 
+diff -Naur original/SWWORK/APP4/LR3JD2A2.CMD modified/SWWORK/APP4/LR3JD2A2.CMD
+--- original/SWWORK/APP4/LR3JD2A2.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP4/LR3JD2A2.CMD	2019-03-07 06:51:00.975903146 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App4\LR3JD2A2.CMD
+ 
+-ECHO Lenovo Solution Center -Install >>C:\SWWORK\Modules.log
+-
++ECHO Not Installing Lenovo Solution Center -Install >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3JD2A2
+ 
+ IF EXIST C:\SWWORK\NOACC.TAG goto END
+diff -Naur original/SWWORK/APP4/LR3JQ8A2.CMD modified/SWWORK/APP4/LR3JQ8A2.CMD
+--- original/SWWORK/APP4/LR3JQ8A2.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP4/LR3JQ8A2.CMD	2019-03-07 06:51:38.136491284 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App4\LR3JQ8A2.CMD
+ 
+-ECHO Tiles >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Tiles >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3JQ8A2
+ 
+ IF EXIST C:\SWWORK\NOACC.TAG GOTO DELSOURCE
+diff -Naur original/SWWORK/APP4/LS2JT6A2.CMD modified/SWWORK/APP4/LS2JT6A2.CMD
+--- original/SWWORK/APP4/LS2JT6A2.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP4/LS2JT6A2.CMD	2019-03-07 06:52:19.945152988 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LS2JT6A2.CMD
+ 
+-ECHO ThinkVantage Fingerprint Software - Source >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkVantage Fingerprint Software - Source >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LS2JT6A2
+ 
+ SET TYPE=
+diff -Naur original/SWWORK/APP4/tvsu40.cmd modified/SWWORK/APP4/tvsu40.cmd
+--- original/SWWORK/APP4/tvsu40.cmd	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP4/tvsu40.cmd	2019-03-07 06:54:07.990863038 -0900
+@@ -2,8 +2,8 @@
+ 
+ Set MODNAME=ZA74035B
+ 
+-ECHO TVSU4.0 ZA74035B >>C:\SWWORK\Modules.log
+-
++ECHO Not installing TVSU4.0 ZA74035B >>C:\SWWORK\Modules.log
++GOTO END
+ if NOT DEFINED programfiles(X86) goto v32
+ if DEFINED programfiles(X86) goto v64
+ goto error
+diff -Naur original/SWWORK/APP5/4LR2ZO3A2.CMD modified/SWWORK/APP5/4LR2ZO3A2.CMD
+--- original/SWWORK/APP5/4LR2ZO3A2.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP5/4LR2ZO3A2.CMD	2019-03-07 06:54:39.015775275 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App5\LR2ZO3A2.CMD
+ 
+-ECHO Acrobat Reader X >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Acrobat Reader X >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2ZO3A2
+ 
+ PUSHD C:\SWTOOLS\Apps\Adobe\AdobeReader\
+diff -Naur original/SWWORK/APP5/DelFolder.cmd modified/SWWORK/APP5/DelFolder.cmd
+--- original/SWWORK/APP5/DelFolder.cmd	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP5/DelFolder.cmd	2019-03-07 06:55:00.992417770 -0900
+@@ -1,5 +1,5 @@
+ REM Del Adobe Folder
+-
++GOTO END
+ IF NOT EXIST C:\swwork\MLPS.TAG GOTO END
+ 
+ IF NOT EXIST C:\SWTools\Apps\Adobe GOTO END
+diff -Naur original/SWWORK/APP5/LR2D97A2.CMD modified/SWWORK/APP5/LR2D97A2.CMD
+--- original/SWWORK/APP5/LR2D97A2.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP5/LR2D97A2.CMD	2019-03-07 06:55:24.257086380 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App5\LR2D97A2.CMD
+ 
+-ECHO Tiles >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Tiles >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2D97A2
+ 
+ IF EXIST C:\SWWORK\NOACC.TAG goto END
+diff -Naur original/SWWORK/APP5/LR2DWDA2.CMD modified/SWWORK/APP5/LR2DWDA2.CMD
+--- original/SWWORK/APP5/LR2DWDA2.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP5/LR2DWDA2.CMD	2019-03-07 06:55:40.857556498 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App5\LR2DWDA2.CMD
+ 
+-ECHO X-Rite Pantone Color Calibrator >>C:\SWWORK\Modules.log
+-
++ECHO Not installing X-Rite Pantone Color Calibrator >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2DWDA2
+ 
+ reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\HID"|find /I "VID_0765&PID_5010"
+diff -Naur original/SWWORK/APP5/LR2RYCA0.CMD modified/SWWORK/APP5/LR2RYCA0.CMD
+--- original/SWWORK/APP5/LR2RYCA0.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP5/LR2RYCA0.CMD	2019-03-07 06:55:57.930034151 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\APP5\LR2RYCA0.CMD
+ 
+-ECHO Intervideo WinDVD 10 SD - CPP2 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Intervideo WinDVD 10 SD - CPP2 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2RYCA0
+ 
+ PUSHD C:\swwork\windvd10SD
+diff -Naur original/SWWORK/APP5/LR2ZX3A2.CMD modified/SWWORK/APP5/LR2ZX3A2.CMD
+--- original/SWWORK/APP5/LR2ZX3A2.CMD	2019-03-06 22:05:54.759576891 -0900
++++ modified/SWWORK/APP5/LR2ZX3A2.CMD	2019-03-07 06:56:13.658469130 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App5\LR2ZX3A2.CMD
+ 
+-ECHO Evernote >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Evernote >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2ZX3A2
+ 
+ PUSHD C:\SWTOOLS\APPS\Evernote\
+diff -Naur original/SWWORK/APP5/LR33H5A0.CMD modified/SWWORK/APP5/LR33H5A0.CMD
+--- original/SWWORK/APP5/LR33H5A0.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP5/LR33H5A0.CMD	2019-03-07 06:58:08.413508930 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\APP5\LR33H5A0.CMD
+ 
+-ECHO Intervideo DMF 7 SD - CPP2 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Intervideo DMF 7 SD - CPP2 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR33H5A0
+ 
+ PUSHD C:\swwork\dmfsd
+diff -Naur original/SWWORK/APP5/LR35A9A2.cmd modified/SWWORK/APP5/LR35A9A2.cmd
+--- original/SWWORK/APP5/LR35A9A2.cmd	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP5/LR35A9A2.cmd	2019-03-07 06:57:55.917188482 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\DOWORK4\LR35A9A2.CMD
+ 
+-ECHO IE favorite for Google PCR -remove bing in IE search provider before Chrome and Toolbar install at APP6 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing IE favorite for Google PCR -remove bing in IE search provider before Chrome and Toolbar install at APP6 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR35A9A2
+ 
+ reg import C:\SWWORK\LR35A9A2\searchscope32.reg
+diff -Naur original/SWWORK/APP5/LR3LZ1A2.CMD modified/SWWORK/APP5/LR3LZ1A2.CMD
+--- original/SWWORK/APP5/LR3LZ1A2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP5/LR3LZ1A2.CMD	2019-03-07 06:58:23.285887217 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App5\LR3LZ1A2.CMD
+ 
+-ECHO RapidBoot HDD Accelerator >>C:\SWWORK\Modules.log
+-
++ECHO Not installing RapidBoot HDD Accelerator >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3LZ1A2
+ 
+ REM Preinstall RapidBoot HDD Accelerator
+diff -Naur original/SWWORK/APP5/LRJQANA2.CMD modified/SWWORK/APP5/LRJQANA2.CMD
+--- original/SWWORK/APP5/LRJQANA2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP5/LRJQANA2.CMD	2019-03-07 06:57:46.292940026 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\APP5\LRJQANA2.CMD
+ 
+-ECHO Lenovo Welcome >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Lenovo Welcome >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LRJQANA2
+ 
+ PUSHD C:\SWTools\LenovoWelcome\
+diff -Naur original/SWWORK/APP5/LRWJJ9A2.CMD modified/SWWORK/APP5/LRWJJ9A2.CMD
+--- original/SWWORK/APP5/LRWJJ9A2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP5/LRWJJ9A2.CMD	2019-03-07 06:57:35.868669260 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\APP5\LRWJJ9A2.CMD
+ 
+-ECHO Skype >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Skype >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LRWJJ9A2
+ 
+ REM This file sets up the Skype Start Menu link
+diff -Naur original/SWWORK/APP5/LRXYG8A2.CMD modified/SWWORK/APP5/LRXYG8A2.CMD
+--- original/SWWORK/APP5/LRXYG8A2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP5/LRXYG8A2.CMD	2019-03-07 06:57:23.516346126 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App5\LRXYG8A2.CMD
+ 
+-ECHO Lenovo Message Center Plus >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Lenovo Message Center Plus >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LRXYG8A2
+ 
+ PUSHD "C:\swtools\apps\Message Center Plus\"
+diff -Naur original/SWWORK/APP5/LRZQPAA2.CMD modified/SWWORK/APP5/LRZQPAA2.CMD
+--- original/SWWORK/APP5/LRZQPAA2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP5/LRZQPAA2.CMD	2019-03-07 06:57:11.444027871 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\APP5\LRZQPAA2.CMD
+ 
+-ECHO Win7-Help and Support -THINKPAD >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Win7-Help and Support -THINKPAD >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LRZQPAA2
+ 
+ PUSHD C:\SWWork\H_and_S\
+diff -Naur original/SWWORK/APP5/LS2JU3A2.CMD modified/SWWORK/APP5/LS2JU3A2.CMD
+--- original/SWWORK/APP5/LS2JU3A2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP5/LS2JU3A2.CMD	2019-03-07 06:56:55.627607152 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App5\LS2JU3A2.CMD
+ 
+-ECHO ThinkVantage Fingerprint Software (pre-installer) for Windows 7 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkVantage Fingerprint Software (pre-installer) for Windows 7 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LS2JU3A2
+ 
+ SET TYPE=
+diff -Naur original/SWWORK/APP6/LR2DNDA2.cmd modified/SWWORK/APP6/LR2DNDA2.cmd
+--- original/SWWORK/APP6/LR2DNDA2.cmd	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP6/LR2DNDA2.cmd	2019-03-07 07:05:09.563224380 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App6\LR2DNDA2.CMD
+ 
+-ECHO Google Chrome and Toolbar >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Google Chrome and Toolbar >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2DNDA2
+ 
+ PUSHD "C:\SWWORK\Google Chrome and Toolbar\"
+diff -Naur original/SWWORK/APP6/LR2J6EA2.CMD modified/SWWORK/APP6/LR2J6EA2.CMD
+--- original/SWWORK/APP6/LR2J6EA2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP6/LR2J6EA2.CMD	2019-03-07 07:04:57.818975143 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\app6\LR2J6EA2.CMD
+ 
+-ECHO ThinkVantage Lenovo Mobile Broadband Activate (pre-installer) for Windows 7 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkVantage Lenovo Mobile Broadband Activate (pre-installer) for Windows 7 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2J6EA2
+ 
+ if not exist "C:\SWTOOLS\READYAPPS\WanLite" goto end
+diff -Naur original/SWWORK/APP6/LR2J89A2.CMD modified/SWWORK/APP6/LR2J89A2.CMD
+--- original/SWWORK/APP6/LR2J89A2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP6/LR2J89A2.CMD	2019-03-07 07:04:31.490412940 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App6\LR2J89A2.CMD
+ 
+-ECHO Lenovo User Guide Viewer Source >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Lenovo User Guide Viewer Source >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2J89A2
+ 
+ PUSHD C:\swtools\readyapps\usrguide\
+diff -Naur original/SWWORK/APP6/LR2VO3A0.CMD modified/SWWORK/APP6/LR2VO3A0.CMD
+--- original/SWWORK/APP6/LR2VO3A0.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP6/LR2VO3A0.CMD	2019-03-07 07:04:15.150061529 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App6\LR2VO3A0.CMD
+ 
+-ECHO Intervideo BurnNow SD - CPP2 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Intervideo BurnNow SD - CPP2 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2VO3A0
+ 
+ PUSHD C:\swwork\BurnNowSD
+diff -Naur original/SWWORK/APP6/LROBX5A2.CMD modified/SWWORK/APP6/LROBX5A2.CMD
+--- original/SWWORK/APP6/LROBX5A2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP6/LROBX5A2.CMD	2019-03-07 07:03:52.173564032 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\APP6\LROBX5A2.CMD
+ 
+-ECHO Warranty Viewer [Source - Ready to Install] -1.0.0005.00 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Warranty Viewer [Source - Ready to Install] -1.0.0005.00 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=%MODNAME%
+ 
+ REM Ready to Install Warranty Viewer
+diff -Naur original/SWWORK/APP6/LROBX6A2.CMD modified/SWWORK/APP6/LROBX6A2.CMD
+--- original/SWWORK/APP6/LROBX6A2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP6/LROBX6A2.CMD	2019-03-07 07:03:37.073234852 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\APP6\LROBX6A2.CMD
+ 
+-ECHO Warranty Viewer - [Install] >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Warranty Viewer - [Install] >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=%MODNAME%
+ 
+ REM Prinstall Warranty Viewer
+diff -Naur original/SWWORK/APP6/M7JLCS07.CMD modified/SWWORK/APP6/M7JLCS07.CMD
+--- original/SWWORK/APP6/M7JLCS07.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP6/M7JLCS07.CMD	2019-03-07 07:03:17.352802200 -0900
+@@ -1,5 +1,5 @@
+ @ECHO OFF
+-
++GOTO END
+ :: SugarSync should not be included on images for PRC.
+ IF EXIST C:\SWWORK\CHS GOTO remove
+ 
+diff -Naur original/SWWORK/APP6/tvtrnr45.cmd modified/SWWORK/APP6/tvtrnr45.cmd
+--- original/SWWORK/APP6/tvtrnr45.cmd	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP6/tvtrnr45.cmd	2019-03-07 06:59:53.960126210 -0900
+@@ -1,5 +1,5 @@
+-ECHO Rescue and Recovery 4.5 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Rescue and Recovery 4.5 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=Z936025A
+ ECHO MODNAME=Z936025A >>C:\SWWORK\Modules.log
+ 
+diff -Naur original/SWWORK/APP6/Z007004A.cmd modified/SWWORK/APP6/Z007004A.cmd
+--- original/SWWORK/APP6/Z007004A.cmd	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP6/Z007004A.cmd	2019-03-07 06:59:02.306864443 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App6\
+ 
+-ECHO ThinkVantage Lenovo Mobile Broadband Activate(Ready-to-Install) for Windows 7 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkVantage Lenovo Mobile Broadband Activate(Ready-to-Install) for Windows 7 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=
+ 
+ if not exist "C:\SWTOOLS\READYAPPS\WanLite\Detwanhw.exe" goto end
+diff -Naur original/SWWORK/APP7/LR2GN6A2.CMD modified/SWWORK/APP7/LR2GN6A2.CMD
+--- original/SWWORK/APP7/LR2GN6A2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP7/LR2GN6A2.CMD	2019-03-07 07:07:15.709847464 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\APP7\LR2GN6A2.CMD
+ 
+-ECHO Windows Live Essentials 2011 Customization >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Windows Live Essentials 2011 Customization >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2GN6A2
+ 
+ PUSHD C:\SWTOOLS\WindowsLive_2011\
+diff -Naur original/SWWORK/APP7/LR2J97A2.CMD modified/SWWORK/APP7/LR2J97A2.CMD
+--- original/SWWORK/APP7/LR2J97A2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP7/LR2J97A2.CMD	2019-03-07 07:07:04.965627592 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App7\LR2J97A2.CMD
+ 
+-ECHO Lenovo User Guide Viewer Installer >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Lenovo User Guide Viewer Installer >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2J97A2
+ 
+ PUSHD C:\swtools\readyapps\usrguide\
+diff -Naur original/SWWORK/APP7/LR2T68A2.CMD modified/SWWORK/APP7/LR2T68A2.CMD
+--- original/SWWORK/APP7/LR2T68A2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP7/LR2T68A2.CMD	2019-03-07 07:06:55.757438664 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App7\LR2T68A2.CMD
+ 
+-ECHO Lenovo Registration >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Lenovo Registration >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2T68A2
+ 
+ PUSHD C:\SWWORK\APP7\leaderTech\
+diff -Naur original/SWWORK/APP7/LR3EA2A2.CMD modified/SWWORK/APP7/LR3EA2A2.CMD
+--- original/SWWORK/APP7/LR3EA2A2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP7/LR3EA2A2.CMD	2019-03-07 07:06:45.245222418 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App7\LR3EA2A2.CMD
+ 
+-ECHO Warranty Viewer -Files >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Warranty Viewer -Files >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3EA2A2
+ 
+ REM update warranty files
+diff -Naur original/SWWORK/APP7/LR3PR3A2.CMD modified/SWWORK/APP7/LR3PR3A2.CMD
+--- original/SWWORK/APP7/LR3PR3A2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP7/LR3PR3A2.CMD	2019-03-07 07:06:32.428957946 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App7\LR3PR3A2.CMD
+ 
+-ECHO Lenovo User Guide - Nozomi4/Kendo4/Shinai4 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Lenovo User Guide - Nozomi4/Kendo4/Shinai4 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3PR3A2
+ 
+ PUSHD C:\swtools\readyapps\usrguide\
+diff -Naur original/SWWORK/APP7/LR3RW5A1.CMD modified/SWWORK/APP7/LR3RW5A1.CMD
+--- original/SWWORK/APP7/LR3RW5A1.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP7/LR3RW5A1.CMD	2019-03-07 07:06:22.068743478 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App7\LR3RW5A1.CMD
+ 
+-ECHO ThinkVantage Access Connections 5.92 for Windows 7 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkVantage Access Connections 5.92 for Windows 7 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3RW5A1
+ 
+ PUSHD C:\swtools\readyapps\accon\
+diff -Naur original/SWWORK/APP7/LR3SX1A1.CMD modified/SWWORK/APP7/LR3SX1A1.CMD
+--- original/SWWORK/APP7/LR3SX1A1.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP7/LR3SX1A1.CMD	2019-03-07 07:06:10.452502265 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App7\LR3SX1A1.CMD
+ 
+-ECHO Win7 - Patch module for fix Pana ODD S3 BSOD issue >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Win7 - Patch module for fix Pana ODD S3 BSOD issue >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3SX1A1
+ 
+ PUSHD C:\SWWORK\APP7
+diff -Naur original/SWWORK/APP7/tvtpwm40.cmd modified/SWWORK/APP7/tvtpwm40.cmd
+--- original/SWWORK/APP7/tvtpwm40.cmd	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP7/tvtpwm40.cmd	2019-03-07 07:05:53.116140783 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\APP7\tvtpwm40.CMD
+ 
+-ECHO Password Manager 4.0 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Password Manager 4.0 >>C:\SWWORK\Modules.log
++GOTO END
+ 
+ :start
+ Set MODNAME=ZA67026M
+diff -Naur original/SWWORK/APP8/rec7burncd.cmd modified/SWWORK/APP8/rec7burncd.cmd
+--- original/SWWORK/APP8/rec7burncd.cmd	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP8/rec7burncd.cmd	2019-03-07 07:07:36.278266712 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\APP8\rec7burncd.cmd
+ 
+-ECHO REC7BURNCD FOR Windows 7 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing REC7BURNCD FOR Windows 7 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=018A
+ ECHO MODNAME=018A >>C:\SWWORK\Modules.log
+ 
+diff -Naur original/SWWORK/APP8/Z936025P.cmd modified/SWWORK/APP8/Z936025P.cmd
+--- original/SWWORK/APP8/Z936025P.cmd	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP8/Z936025P.cmd	2019-03-07 07:08:41.115574806 -0900
+@@ -1,4 +1,5 @@
+-echo running Z936025P.cmd >>c:\swwork\modules.log
++echo not running running Z936025P.cmd >>c:\swwork\modules.log
++GOTO END
+ @echo off
+ c:\swwork\assigned.exe /fixed d:
+ if errorlevel 1 goto foundd
+@@ -17,3 +18,4 @@
+ @echo off
+ call c:\swwork\app8\drvnum.bat
+ popd
++:END
+\ No newline at end of file
+diff -Naur original/SWWORK/APP9/AVNISALL.CMD modified/SWWORK/APP9/AVNISALL.CMD
+--- original/SWWORK/APP9/AVNISALL.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP9/AVNISALL.CMD	2019-03-07 07:11:14.282595089 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\APP9\AVNISALL.CMD
+ 
+-ECHO Norton Internet Security 2012 30Days>>C:\SWWORK\Modules.log
+-
++ECHO Not installing Norton Internet Security 2012 30Days>>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=%MODNAME%
+ 
+ REM Prinstall NIS 2012 30Days 
+diff -Naur original/SWWORK/APP9/LR2IC7A2.CMD modified/SWWORK/APP9/LR2IC7A2.CMD
+--- original/SWWORK/APP9/LR2IC7A2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP9/LR2IC7A2.CMD	2019-03-07 07:10:59.394305276 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App9\LR2IC7A2.CMD
+ 
+-ECHO Device Experience - ThinkPad - Lenovo ThinkVantage Tools 3.2 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Device Experience - ThinkPad - Lenovo ThinkVantage Tools 3.2 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2IC7A2
+ 
+ PUSHD "C:\swtools\apps\Lenovo ThinKVantage Tools\"
+diff -Naur original/SWWORK/APP9/LR2XCBA2.CMD modified/SWWORK/APP9/LR2XCBA2.CMD
+--- original/SWWORK/APP9/LR2XCBA2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP9/LR2XCBA2.CMD	2019-03-07 07:10:46.714057856 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App9\LR2XCBA2.CMD
+ 
+-ECHO Symantec VIP >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Symantec VIP >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2XCBA2
+ 
+ PUSHD C:\Swtools\APPS\Symantec VIP\
+diff -Naur original/SWWORK/APP9/LR39XAA1.CMD modified/SWWORK/APP9/LR39XAA1.CMD
+--- original/SWWORK/APP9/LR39XAA1.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP9/LR39XAA1.CMD	2019-03-07 07:10:36.273853728 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App9\LR39XAA1.CMD
+ 
+-ECHO RapidBoot 1.20 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing RapidBoot 1.20 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR39XAA1
+ 
+ PUSHD C:\SWTOOLS\DRIVERS\RapidBoot\
+diff -Naur original/SWWORK/APP9/LS2QR2A2.CMD modified/SWWORK/APP9/LS2QR2A2.CMD
+--- original/SWWORK/APP9/LS2QR2A2.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP9/LS2QR2A2.CMD	2019-03-07 07:10:25.393640588 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App9\LS2QR2A2.CMD
+ 
+-ECHO WiMAX Tutorial Video Gadget >>C:\SWWORK\Modules.log
+-
++ECHO Not installing WiMAX Tutorial Video Gadget >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LS2QR2A2
+ 
+ PUSHD "C:\swtools\apps\WiMAX Tutorial Video Gadget\"
+diff -Naur original/SWWORK/APP9/rec7burncd.cmd modified/SWWORK/APP9/rec7burncd.cmd
+--- original/SWWORK/APP9/rec7burncd.cmd	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP9/rec7burncd.cmd	2019-03-07 07:10:08.641311579 -0900
+@@ -1,10 +1,11 @@
+ :: REM CMD File Location = C:\SWWORK\APP9\rec7burncd.cmd
+ 
+-ECHO REC7BURNCD FOR Win7 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing REC7BURNCD FOR Win7 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=Z987041S
+ ECHO MODNAME=Z987041R >>C:\SWWORK\Modules.log
+ 
+ start /wait c:\swtools\readyapps\rec7burncd\setup.exe /w /s /v"/qn REBOOT="R" ENABLETPM=0 /l*v c:\swtools\readyapps\rec7burncd\rec7burncd.log"
+ POPD
+ Set MODNAME=
++:END
+\ No newline at end of file
+diff -Naur original/SWWORK/APP9/SymSilent.CMD modified/SWWORK/APP9/SymSilent.CMD
+--- original/SWWORK/APP9/SymSilent.CMD	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP9/SymSilent.CMD	2019-03-07 07:09:51.760978999 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\APP9\SymSilent.CMD
+ 
+-ECHO SymSilent for Norton 2012 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing SymSilent for Norton 2012 >>C:\SWWORK\Modules.log
++GOTO END1
+ Set MODNAME=%MODNAME%
+ 
+ REM SymSilent for Norton 2012 for both 32 and 64(emulated).
+@@ -18,3 +18,4 @@
+ :END 
+ Set MODNAME=
+ del %0
++:END1
+diff -Naur original/SWWORK/APP9/tvsu40.cmd modified/SWWORK/APP9/tvsu40.cmd
+--- original/SWWORK/APP9/tvsu40.cmd	2019-03-06 22:05:54.763576977 -0900
++++ modified/SWWORK/APP9/tvsu40.cmd	2019-03-07 07:09:31.144571321 -0900
+@@ -1,5 +1,5 @@
+ :: REM CMD File Location = C:\SWWORK\APP9\tvsu40.CMD
+-
++GOTO END
+ Set MODNAME=ZA33007S
+ 
+ ECHO TVSU4.0 ZA33007S >>C:\SWWORK\Modules.log
+diff -Naur original/SWWORK/AUDIO/LR3RJ2A1.CMD modified/SWWORK/AUDIO/LR3RJ2A1.CMD
+--- original/SWWORK/AUDIO/LR3RJ2A1.CMD	2019-03-06 22:05:54.779577321 -0900
++++ modified/SWWORK/AUDIO/LR3RJ2A1.CMD	2019-03-07 07:11:43.251156927 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\Audio\LR3RJ2A1.CMD
+ 
+-ECHO Realtek Audio driver with Dolby Advance Audio >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Realtek Audio driver with Dolby Advance Audio >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3RJ2A1
+ 
+ PUSHD C:\SWTOOLS\DRIVERS\AUDIO\
+diff -Naur original/SWWORK/BurnNowSD/setup.cmd modified/SWWORK/BurnNowSD/setup.cmd
+--- original/SWWORK/BurnNowSD/setup.cmd	2019-03-06 22:05:54.767577064 -0900
++++ modified/SWWORK/BurnNowSD/setup.cmd	2019-03-07 07:14:47.022666245 -0900
+@@ -1,4 +1,5 @@
+ @ECHO Off
++GOTO END
+ REM Version 1.0 for Windows 7/XP LPC PCs with BEP, Showroom, and BN
+ echo Installing CD-RW applications.
+ 
+diff -Naur original/SWWORK/C/WINDOWS/cleanup.cmd modified/SWWORK/C/WINDOWS/cleanup.cmd
+--- original/SWWORK/C/WINDOWS/cleanup.cmd	2019-03-06 22:05:54.767577064 -0900
++++ modified/SWWORK/C/WINDOWS/cleanup.cmd	2019-03-07 07:16:41.380811248 -0900
+@@ -1,3 +1,4 @@
++GOTO END
+ IF EXIST C:\swtools\modules.log ECHO CLEANUPCMD %TIME% >>C:\swtools\modules.log
+ IF EXIST C:\windows\modules.log ECHO CLEANUPCMD %TIME% >>C:\windows\modules.log
+ REM HOOK1
+@@ -14,4 +15,5 @@
+ if exist C:\WINDOWS\*.3BI DEL /Q C:\WINDOWS\*.3BI
+ if exist c:\WINDOWS\cleanup.lnk del c:\WINDOWS\cleanup.lnk
+ if exist c:\WINDOWS\cleanup.cmd del c:\WINDOWS\cleanup.cmd
+-REM NOTHING BELOW - FILE IS GONE
+\ No newline at end of file
++REM NOTHING BELOW - FILE IS GONE
++:END
+\ No newline at end of file
+diff -Naur original/SWWORK/C/WINDOWS/CLNDR.CMD modified/SWWORK/C/WINDOWS/CLNDR.CMD
+--- original/SWWORK/C/WINDOWS/CLNDR.CMD	2019-03-06 22:05:54.767577064 -0900
++++ modified/SWWORK/C/WINDOWS/CLNDR.CMD	2019-03-07 07:17:07.397295891 -0900
+@@ -1,4 +1,5 @@
+ @ECHO OFF
++GOTO END
+ IF EXIST C:\SWTOOLS (SET LOGFILE=C:\SWTOOLS\MODULES.LOG) else (SET LOGFILE=C:\WINDOWS\MODULES.LOG)
+ ECHO %TIME% ***** CLNDR BEGIN ***** >> %LOGFILE%
+ 
+diff -Naur original/SWWORK/C/WINDOWS/MFGCLEAN.CMD modified/SWWORK/C/WINDOWS/MFGCLEAN.CMD
+--- original/SWWORK/C/WINDOWS/MFGCLEAN.CMD	2019-03-06 22:05:54.767577064 -0900
++++ modified/SWWORK/C/WINDOWS/MFGCLEAN.CMD	2019-03-07 07:17:41.733933833 -0900
+@@ -1,5 +1,6 @@
+ ECHO OFF
+ ECHO ***** %TIME% START MFGCLEAN ***** >>C:\SWWORK\MODULES.LOG
++GOTO END
+ c:\windows\system32\wevtutil.exe cl application /bu:c:\Windows\logs\application.evtx
+ c:\windows\system32\wevtutil.exe cl system /bu:c:\Windows\logs\system.evtx
+ c:\windows\system32\wevtutil.exe cl security /bu:c:\Windows\logs\security.evtx
+diff -Naur original/SWWORK/ChromeFavorite/Language.CMD modified/SWWORK/ChromeFavorite/Language.CMD
+--- original/SWWORK/ChromeFavorite/Language.CMD	2019-03-06 22:05:54.767577064 -0900
++++ modified/SWWORK/ChromeFavorite/Language.CMD	2019-03-07 22:03:19.222611044 -0900
+@@ -1,5 +1,5 @@
+ REM this batch file will detect the country Specific Lenovo Favorites Links
+-
++GOTO END
+ copy /y bookmarksEN.html "c:\ProgramData\Lenovo\Chrome\bookmarks.html"
+ 
+ :BR
+diff -Naur original/SWWORK/ChromeFavorite/Setup.CMD modified/SWWORK/ChromeFavorite/Setup.CMD
+--- original/SWWORK/ChromeFavorite/Setup.CMD	2019-03-06 22:05:54.767577064 -0900
++++ modified/SWWORK/ChromeFavorite/Setup.CMD	2019-03-07 22:03:36.634941193 -0900
+@@ -1,3 +1,4 @@
++GOTO END
+ IF NOT EXIST "c:\ProgramData\Lenovo" MD "c:\ProgramData\Lenovo"
+ IF NOT EXIST "c:\ProgramData\Lenovo\Chrome" MD "c:\ProgramData\Lenovo\Chrome"
+ 
+diff -Naur original/SWWORK/CTRLWOL.CMD modified/SWWORK/CTRLWOL.CMD
+--- original/SWWORK/CTRLWOL.CMD	2019-03-06 22:05:54.767577064 -0900
++++ modified/SWWORK/CTRLWOL.CMD	2019-03-08 23:15:29.264201362 -0900
+@@ -1,6 +1,6 @@
+ REM CMD file to run the script to do the wake on enable vbs if it's here.
+-ECHO Win - Run WOLENABLE script for Energystar compliance >>C:\SWWORK\Modules.log
+-
++ECHO Not installin Win - Run WOLENABLE script for Energystar compliance >>C:\SWWORK\Modules.log
++GOTO END
+ 
+ IF NOT EXIST C:\SWWORK\CTRLWOL\CTRLWOL.VBS GOTO END
+ MD C:\SWTOOLS
+diff -Naur original/SWWORK/DMFSD/setup.cmd modified/SWWORK/DMFSD/setup.cmd
+--- original/SWWORK/DMFSD/setup.cmd	2019-03-06 22:05:54.767577064 -0900
++++ modified/SWWORK/DMFSD/setup.cmd	2019-03-07 22:05:57.201583876 -0900
+@@ -1,6 +1,8 @@
+ @ECHO Off
++
+ REM Version 1.0 for Windows 7/XP LPC PCs with BEP, Showroom, and BN
+-echo Installing DVD-RW applications.
++echo Not installing Installing DVD-RW applications.
++GOTO END
+ 
+ REM External overrides
+ if exist c:\swwork\ODDFORCEDVDRW goto forceinstall
+diff -Naur original/SWWORK/DOWORK2/LR2QE2A2.CMD modified/SWWORK/DOWORK2/LR2QE2A2.CMD
+--- original/SWWORK/DOWORK2/LR2QE2A2.CMD	2019-03-06 22:05:54.767577064 -0900
++++ modified/SWWORK/DOWORK2/LR2QE2A2.CMD	2019-03-07 22:07:09.574931026 -0900
+@@ -1,6 +1,7 @@
+ REM This file will install Adobe Flash Player on Win7
+ 
+-ECHO Adobe Flash Player 10.0.32.18 >>C:\SWWORK\Modules.log
++ECHO Not installing Adobe Flash Player 10.0.32.18 >>C:\SWWORK\Modules.log
++GOTO END
+ 
+ Set MODNAME=%MODNAME%
+ 
+diff -Naur original/SWWORK/DOWORK2/LR2ZO3A2.CMD modified/SWWORK/DOWORK2/LR2ZO3A2.CMD
+--- original/SWWORK/DOWORK2/LR2ZO3A2.CMD	2019-03-06 22:05:54.767577064 -0900
++++ modified/SWWORK/DOWORK2/LR2ZO3A2.CMD	2019-03-07 22:08:02.639913887 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\dowork2\LR2ZO3A2.CMD
+ 
+-ECHO Delete Acrobat Reader X launch file>>C:\SWWORK\Modules.log
+-
++ECHO Not Delete Acrobat Reader X launch file>>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2ZO3A2
+ 
+ IF EXIST C:\swwork\MLPS.TAG GOTO END
+diff -Naur original/SWWORK/DOWORK2/Office14oobe.en-us.cmd modified/SWWORK/DOWORK2/Office14oobe.en-us.cmd
+--- original/SWWORK/DOWORK2/Office14oobe.en-us.cmd	2019-03-06 22:05:54.767577064 -0900
++++ modified/SWWORK/DOWORK2/Office14oobe.en-us.cmd	2019-03-07 22:08:56.632910164 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\dowork2\Office14oobe.en-us.cmd
+ 
+-ECHO Microsoft Office 2010 14.0 OOBE MSP>>C:\SWWORK\Modules.log
+-
++ECHO Not installing Microsoft Office 2010 14.0 OOBE MSP>>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=%MODNAME%
+ 
+ PUSHD "C:\SWWORK\OEMOffice14\en-us\OOBE"
+diff -Naur original/SWWORK/DOWORK3/relmbfolder.cmd modified/SWWORK/DOWORK3/relmbfolder.cmd
+--- original/SWWORK/DOWORK3/relmbfolder.cmd	2019-03-06 22:05:54.767577064 -0900
++++ modified/SWWORK/DOWORK3/relmbfolder.cmd	2019-03-07 22:12:34.972907395 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\dowork3\relmbfolder.cmd
+ 
+-ECHO Remove LMBA Empty folder >>C:\SWWORK\Modules.log
+-
++ECHO Not Remove LMBA Empty folder >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=%MODNAME%
+ 
+ 
+diff -Naur original/SWWORK/DOWORK4/DelLSCDecktopIcon.CMD modified/SWWORK/DOWORK4/DelLSCDecktopIcon.CMD
+--- original/SWWORK/DOWORK4/DelLSCDecktopIcon.CMD	2019-03-06 22:05:54.779577321 -0900
++++ modified/SWWORK/DOWORK4/DelLSCDecktopIcon.CMD	2019-03-07 22:16:33.861159270 -0900
+@@ -1,4 +1,5 @@
+-ECHO Lenovo Solution Center remove desktop icon >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Lenovo Solution Center remove desktop icon >>C:\SWWORK\Modules.log
++GOTO END
+ IF EXIST "%userprofile%\Desktop\Lenovo SOlution Center.lnk" del "%userprofile%\Desktop\Lenovo SOlution Center.lnk"
+-IF EXIST "C:\Users\Public\Desktop\Lenovo SOlution Center.lnk" del "C:\Users\Public\Desktop\Lenovo SOlution Center.lnk"
+\ No newline at end of file
++IF EXIST "C:\Users\Public\Desktop\Lenovo SOlution Center.lnk" del "C:\Users\Public\Desktop\Lenovo SOlution Center.lnk"
++:END
+\ No newline at end of file
+diff -Naur original/SWWORK/DOWORK4/M7CR23A.CMD modified/SWWORK/DOWORK4/M7CR23A.CMD
+--- original/SWWORK/DOWORK4/M7CR23A.CMD	2019-03-06 22:05:54.779577321 -0900
++++ modified/SWWORK/DOWORK4/M7CR23A.CMD	2019-03-07 22:14:11.766666678 -0900
+@@ -1,7 +1,7 @@
+ 
+ :: REM CMD File Location=C:\SWWORK\DOWORK4\M7CR23A.CMD
+   
+-  
++  GOTO END
+    
+ SET MODNAME=M7CR23A 
+   
+diff -Naur original/SWWORK/DOWORK4/ZDelOemOffice.cmd modified/SWWORK/DOWORK4/ZDelOemOffice.cmd
+--- original/SWWORK/DOWORK4/ZDelOemOffice.cmd	2019-03-06 22:05:54.779577321 -0900
++++ modified/SWWORK/DOWORK4/ZDelOemOffice.cmd	2019-03-07 22:13:41.150110902 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\dowork5\ZDelOemOffice.cmd
+ 
+-ECHO Remove office source after audit>>C:\SWWORK\Modules.log
+-
++ECHO Not Remove office source after audit>>C:\SWWORK\Modules.log
++GOT END
+ Set MODNAME=ZDelOemOffice
+ 
+ REM Del Office source
+diff -Naur original/SWWORK/DOWORK6/ClearCache.CMD modified/SWWORK/DOWORK6/ClearCache.CMD
+--- original/SWWORK/DOWORK6/ClearCache.CMD	2019-03-06 22:05:54.771577150 -0900
++++ modified/SWWORK/DOWORK6/ClearCache.CMD	2019-03-07 22:17:31.870105490 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\factory\ClearCache.CMD
+ 
+-ECHO ClearCache >>C:\SWWORK\Modules.log
+-
++ECHO Not ClearCache >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=ClearCache
+ PUSHD C:\Program Files\Diskeeper Corporation\ExpressCache\
+ eccmd.exe -format
+diff -Naur original/SWWORK/factory/doing_backup.cmd modified/SWWORK/factory/doing_backup.cmd
+--- original/SWWORK/factory/doing_backup.cmd	2019-03-06 22:05:54.771577150 -0900
++++ modified/SWWORK/factory/doing_backup.cmd	2019-03-09 22:26:57.196196219 -0900
+@@ -1,6 +1,6 @@
+ @echo on & setlocal EnableDelayedExpansion
+ pushd c:\swwork\factory
+-
++GOTO END
+ copy c:\swwork\factory\tools\%PROCESSOR_ARCHITECTURE%\*.* c:\swwork\factory /Y > backup.log
+ 
+ call .\tools\readconfig.cmd backup.ini GlobleSettings PartitionCount >> backup.log
+diff -Naur original/SWWORK/FPSINSTALL/DTFPS.CMD modified/SWWORK/FPSINSTALL/DTFPS.CMD
+--- original/SWWORK/FPSINSTALL/DTFPS.CMD	2019-03-06 22:05:54.771577150 -0900
++++ modified/SWWORK/FPSINSTALL/DTFPS.CMD	2019-03-08 06:30:06.426709361 -0900
+@@ -1,5 +1,5 @@
+-ECHO Fingerprint Software (pre-installer) for Windows 7 >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing Fingerprint Software (pre-installer) for Windows 7 >> C:\SWWORK\MODULES.LOG
++GOTO END
+ if not exist "C:\SWTOOLS\READYAPPS\fps\" goto end
+ 
+ if exist C:\SWWORK\recover.tag GOTO DETECT
+diff -Naur original/SWWORK/FPSINSTALL/TPFPS.CMD modified/SWWORK/FPSINSTALL/TPFPS.CMD
+--- original/SWWORK/FPSINSTALL/TPFPS.CMD	2019-03-06 22:05:54.771577150 -0900
++++ modified/SWWORK/FPSINSTALL/TPFPS.CMD	2019-03-08 06:30:21.214952148 -0900
+@@ -1,5 +1,5 @@
+-ECHO Fingerprint Software (pre-installer) for Windows 7 >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing Fingerprint Software (pre-installer) for Windows 7 >> C:\SWWORK\MODULES.LOG
++GOTO END
+ if not exist "C:\SWTOOLS\READYAPPS\fps\setup.msi" goto end
+ 
+ ECHO ? Install Fingerprint Software >> C:\SWWORK\MODULES.LOG
+diff -Naur original/SWWORK/FPSReadyInstall/DTFPSReady.CMD modified/SWWORK/FPSReadyInstall/DTFPSReady.CMD
+--- original/SWWORK/FPSReadyInstall/DTFPSReady.CMD	2019-03-06 22:05:54.771577150 -0900
++++ modified/SWWORK/FPSReadyInstall/DTFPSReady.CMD	2019-03-08 06:30:45.015342769 -0900
+@@ -1,5 +1,6 @@
+ 
+ MD "C:\SWTOOLS"
++GOTO END
+ MD "C:\SWTOOLS\READYAPPS"
+ MD "C:\SWTOOLS\READYAPPS\fps"
+ XCOPY /S /E /Y /H /Q /I C:\SWWORK\fpssource\*.* "C:\SWTOOLS\READYAPPS\fps"
+diff -Naur original/SWWORK/FPSReadyInstall/TPFPSReady.CMD modified/SWWORK/FPSReadyInstall/TPFPSReady.CMD
+--- original/SWWORK/FPSReadyInstall/TPFPSReady.CMD	2019-03-06 22:05:54.771577150 -0900
++++ modified/SWWORK/FPSReadyInstall/TPFPSReady.CMD	2019-03-08 06:31:51.180427933 -0900
+@@ -1,3 +1,4 @@
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETOOLS\tpdevpe.exe /CM "USB\VID_147E&PID_2016"'
+ C:\SWWORK\WPETOOLS\tpdevpe.exe /CM "USB\VID_147E&PID_2016"
+ if not errorlevel 1 GOTO INSTALL
+diff -Naur "original/SWWORK/Google Desktop Additions/Install.cmd" "modified/SWWORK/Google Desktop Additions/Install.cmd"
+--- "original/SWWORK/Google Desktop Additions/Install.cmd"	2019-03-06 22:05:54.771577150 -0900
++++ "modified/SWWORK/Google Desktop Additions/Install.cmd"	2019-03-08 06:32:38.709206815 -0900
+@@ -3,7 +3,7 @@
+ REM /* Date: 11/07/14 */
+ REM /* Last Revision: 11/07/14 */
+ REM /* This product is property of Lenovo and may not be distributed outside Lenovo. */
+-
++GOTO END1
+ IF EXIST C:\SWWORK\W764 GOTO INJECT64
+ C:\SWWORK\WPETOOLS\xmodify /m /sAddBlock32.xml /t%WINDIR%\PANTHER\UNATTEND\unattend.xml
+ if errorlevel 1 goto FAIL
+@@ -24,4 +24,5 @@
+ DEL /Q AddBlock32.xml
+ DEL /Q AddBlock64.xml
+ DEL /Q "Google Desktop Additions.reg"
+-DEL %0
+\ No newline at end of file
++DEL %0
++:END1
+\ No newline at end of file
+diff -Naur original/SWWORK/H_and_S/setup.bat modified/SWWORK/H_and_S/setup.bat
+--- original/SWWORK/H_and_S/setup.bat	2019-03-06 22:05:54.771577150 -0900
++++ modified/SWWORK/H_and_S/setup.bat	2019-03-08 06:32:57.917521455 -0900
+@@ -1,5 +1,7 @@
++GOTO END
+ copy C:\swwork\H_and_S\HelpConfig.xml C:\Windows\Help
+ 
+ start /w OCSetup OEMHelpCustomization
+ 
+-del C:\Windows\Help\HelpConfig.xml
+\ No newline at end of file
++del C:\Windows\Help\HelpConfig.xml
++:END
+\ No newline at end of file
+diff -Naur original/SWWORK/LR29ROA1.BAT modified/SWWORK/LR29ROA1.BAT
+--- original/SWWORK/LR29ROA1.BAT	2019-03-06 22:05:54.771577150 -0900
++++ modified/SWWORK/LR29ROA1.BAT	2019-03-08 23:38:41.182709505 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LR29ROA1 - ThinkPad Wireless LAN - Realtek >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LR29ROA1 - ThinkPad Wireless LAN - Realtek >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETools\PCI_PRES 10EC 8176'
+ C:\SWWORK\WPETools\PCI_PRES 10EC 8176
+ if errorlevel 1 GOTO INSTALL
+diff -Naur original/SWWORK/LR29ROA1.CMD modified/SWWORK/LR29ROA1.CMD
+--- original/SWWORK/LR29ROA1.CMD	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/LR29ROA1.CMD	2019-03-08 23:38:13.430259938 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LR29ROA1.CMD
+ 
+-ECHO ThinkPad Wireless LAN - Realtek >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkPad Wireless LAN - Realtek >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR29ROA1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LR2EJQA1.BAT modified/SWWORK/LR2EJQA1.BAT
+--- original/SWWORK/LR2EJQA1.BAT	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/LR2EJQA1.BAT	2019-03-08 23:44:38.220494856 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LR2EJQA1 - Intel Wireless LAN (11agn) - LC >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LR2EJQA1 - Intel Wireless LAN (11agn) - LC >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETools\PCI_PRES 8086 4236'
+ C:\SWWORK\WPETools\PCI_PRES 8086 4236
+ if errorlevel 1 GOTO INSTALL
+diff -Naur original/SWWORK/LR2EJQA1.CMD modified/SWWORK/LR2EJQA1.CMD
+--- original/SWWORK/LR2EJQA1.CMD	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/LR2EJQA1.CMD	2019-03-08 23:44:03.951939473 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LR2EJQA1.CMD
+ 
+-ECHO Intel Wireless LAN (11agn) - LC >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Intel Wireless LAN (11agn) - LC >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2EJQA1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LR2ENPA1.BAT modified/SWWORK/LR2ENPA1.BAT
+--- original/SWWORK/LR2ENPA1.BAT	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/LR2ENPA1.BAT	2019-03-08 23:43:27.183343592 -0900
+@@ -1,3 +1,4 @@
++GOTO END
+ MD C:\DRIVERS
+ MD C:\DRIVERS\Other
+ XCOPY /S /E /Y C:\SWTOOLS\DRIVERS\PMDriver C:\DRIVERS\Other
+diff -Naur original/SWWORK/LR2EUNA1.BAT modified/SWWORK/LR2EUNA1.BAT
+--- original/SWWORK/LR2EUNA1.BAT	2019-03-06 22:05:54.787577494 -0900
++++ modified/SWWORK/LR2EUNA1.BAT	2019-03-08 23:43:10.951080535 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LR2EUNA1 - ThinkPad Bluetooth Software >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LR2EUNA1 - ThinkPad Bluetooth Software >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETOOLS\TpDevPE.EXE /BDCON'
+ C:\SWWORK\WPETOOLS\TpDevPE.EXE /BDCON
+ if not errorlevel 1 GOTO INSTALL
+diff -Naur original/SWWORK/LR2EUNA1.CMD modified/SWWORK/LR2EUNA1.CMD
+--- original/SWWORK/LR2EUNA1.CMD	2019-03-06 22:05:54.787577494 -0900
++++ modified/SWWORK/LR2EUNA1.CMD	2019-03-08 23:42:41.770607654 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LR2EUNA1.CMD
+ 
+-ECHO ThinkPad Bluetooth Software >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkPad Bluetooth Software >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2EUNA1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LR2IQDA1.BAT modified/SWWORK/LR2IQDA1.BAT
+--- original/SWWORK/LR2IQDA1.BAT	2019-03-06 22:05:54.787577494 -0900
++++ modified/SWWORK/LR2IQDA1.BAT	2019-03-08 23:42:17.634216526 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LR2IQDA1- Sierra Wireless MC8355 - Gobi 3000 (TM) Software >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not instaing ? Evaluating filters for LR2IQDA1- Sierra Wireless MC8355 - Gobi 3000 (TM) Software >> C:\SWWORK\MODULES.LOG
++GOTO END
+ :RECOG0
+ ? - ECHO Processing filter 'C:\SWWORK\WPETOOLS\TpDevPE /CM "VID_1199&PID_9012"'
+ C:\SWWORK\WPETools\TpDevPE /CM "VID_1199&PID_9012"
+diff -Naur original/SWWORK/LR2IQDA1.CMD modified/SWWORK/LR2IQDA1.CMD
+--- original/SWWORK/LR2IQDA1.CMD	2019-03-06 22:05:54.787577494 -0900
++++ modified/SWWORK/LR2IQDA1.CMD	2019-03-08 23:41:00.348964200 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LR2IQDA1.CMD
+ 
+-ECHO ThinkPad Wireless WAN - UNDP WAN Modem - (GOBI3) >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkPad Wireless WAN - UNDP WAN Modem - (GOBI3) >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2IQDA1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LR33TEA1.BAT modified/SWWORK/LR33TEA1.BAT
+--- original/SWWORK/LR33TEA1.BAT	2019-03-06 22:05:54.787577494 -0900
++++ modified/SWWORK/LR33TEA1.BAT	2019-03-08 23:38:01.614068533 -0900
+@@ -1,4 +1,6 @@
+ - ThinkVantage Access Connections for Windows 7 >>C:\SWWORK\Modules.log
++ECHO Not installing ? Evaluating filters for LR33TEA1
++GOTO END
++ - ThinkVantage Access Connections for Windows 7 >>C:\SWWORK\Modules.log
+ 
+ :RECOG0
+ ECHO ? - Processing filter 'C:\SWWORK\wpetools\TpDevPE.exe /WWAN "Vid_0bdb&Pid_1900"'
+@@ -171,7 +173,11 @@
+ ECHO ? - Install Filter returned TRUE >> C:\SWWORK\MODULES.LOG
+ ECHO ? Install Filter expression result is TRUE >> C:\SWWORK\MODULES.LOG
+ MD C:\SWWORK\App7 >NUL
+.CMD C:\SWWORK\App7\LR33TEA1
++COPY /Y C:\SWWORK\LR33TEA1
++
++.CMD C:\SWWORK\App7\LR33TEA1
++
++.CMD
+ 
+ 
+ :END  
+diff -Naur original/SWWORK/LR33TEA1.CMD modified/SWWORK/LR33TEA1.CMD
+--- original/SWWORK/LR33TEA1.CMD	2019-03-06 22:05:54.787577494 -0900
++++ modified/SWWORK/LR33TEA1.CMD	2019-03-08 23:37:45.645809876 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\App7\LR33TEA1.CMD
+ 
+-ECHO ThinkVantage Access Connections for Windows 7 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkVantage Access Connections for Windows 7 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR33TEA1
+ 
+ PUSHD C:\swtools\readyapps\accon\
+diff -Naur original/SWWORK/LR33YJA1.BAT modified/SWWORK/LR33YJA1.BAT
+--- original/SWWORK/LR33YJA1.BAT	2019-03-06 22:05:54.787577494 -0900
++++ modified/SWWORK/LR33YJA1.BAT	2019-03-08 23:37:28.945539371 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LR33YJA1 - ThinkPad - Synaptics UltraNav Driver >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LR33YJA1 - ThinkPad - Synaptics UltraNav Driver >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETOOLS\TpDevPe.exe /CM "ACPI\IBM0057"'
+ C:\SWWORK\WPETOOLS\TpDevPe.exe /CM "ACPI\IBM0057"
+ if not errorlevel 1 GOTO INSTALL
+diff -Naur original/SWWORK/LR33YJA1.CMD modified/SWWORK/LR33YJA1.CMD
+--- original/SWWORK/LR33YJA1.CMD	2019-03-06 22:05:54.787577494 -0900
++++ modified/SWWORK/LR33YJA1.CMD	2019-03-08 23:37:17.193349019 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LR33YJA1.CMD
+ 
+-ECHO ThinkPad - Synaptics UltraNav Driver >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkPad - Synaptics UltraNav Driver >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR33YJA1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LR35A9A2/Accelerators/Accelerators_Setup.cmd modified/SWWORK/LR35A9A2/Accelerators/Accelerators_Setup.cmd
+--- original/SWWORK/LR35A9A2/Accelerators/Accelerators_Setup.cmd	2019-03-06 22:05:54.787577494 -0900
++++ modified/SWWORK/LR35A9A2/Accelerators/Accelerators_Setup.cmd	2019-03-08 06:36:36.049089916 -0900
+@@ -1,6 +1,8 @@
++GOTO END
+ IF NOT EXIST "c:\ProgramData\Lenovo" MD "c:\ProgramData\Lenovo"
+ IF NOT EXIST "C:\ProgramData\Lenovo\DefaultIEAccelerators" MD "C:\ProgramData\Lenovo\DefaultIEAccelerators"
+ 
+ COPY "*google*" "C:\ProgramData\Lenovo\DefaultIEAccelerators"
+ 
+-REM reg import "hklm_x64.reg"
+\ No newline at end of file
++REM reg import "hklm_x64.reg"
++:END
+\ No newline at end of file
+diff -Naur original/SWWORK/LR35A9A2/TRANSURL.CMD modified/SWWORK/LR35A9A2/TRANSURL.CMD
+--- original/SWWORK/LR35A9A2/TRANSURL.CMD	2019-03-06 22:05:54.787577494 -0900
++++ modified/SWWORK/LR35A9A2/TRANSURL.CMD	2019-03-08 06:36:54.909398118 -0900
+@@ -1,3 +1,4 @@
++GOTO END
+ REM this batch file will detect the country Specific Lenovo Favorites Links
+ 
+ if not exist C:\SWWORK\BRZ goto DK
+diff -Naur original/SWWORK/LR38W1A1.BAT modified/SWWORK/LR38W1A1.BAT
+--- original/SWWORK/LR38W1A1.BAT	2019-03-06 22:05:54.787577494 -0900
++++ modified/SWWORK/LR38W1A1.BAT	2019-03-08 23:37:06.409174350 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LR38W1A1 - Thinkpad Ricoh Multi Card Reader Driver - CR >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LR38W1A1 - Thinkpad Ricoh Multi Card Reader Driver - CR >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETOOLS\TPDEVPE.EXE /CM "VEN_1180&DEV_E823"'
+ C:\SWWORK\WPETOOLS\TPDEVPE.EXE /CM "VEN_1180&DEV_E823"
+ if not errorlevel 1 GOTO INSTALL
+diff -Naur original/SWWORK/LR38W1A1.CMD modified/SWWORK/LR38W1A1.CMD
+--- original/SWWORK/LR38W1A1.CMD	2019-03-06 22:05:54.787577494 -0900
++++ modified/SWWORK/LR38W1A1.CMD	2019-03-08 23:36:50.324913844 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LR38W1A1.CMD
+ 
+-ECHO Thinkpad Ricoh Multi Card Reader Driver - CR >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Thinkpad Ricoh Multi Card Reader Driver - CR >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR38W1A1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LR38XBA1/Install.bat modified/SWWORK/LR38XBA1/Install.bat
+--- original/SWWORK/LR38XBA1/Install.bat	2019-03-06 22:05:54.791577580 -0900
++++ modified/SWWORK/LR38XBA1/Install.bat	2019-03-08 06:37:07.797608701 -0900
+@@ -1 +1 @@
+-setup.exe -s -f1.\Install.iss
+\ No newline at end of file
++::setup.exe -s -f1.\Install.iss
+\ No newline at end of file
+diff -Naur original/SWWORK/LR38XBA1.BAT modified/SWWORK/LR38XBA1.BAT
+--- original/SWWORK/LR38XBA1.BAT	2019-03-06 22:05:54.791577580 -0900
++++ modified/SWWORK/LR38XBA1.BAT	2019-03-08 23:36:39.408737048 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LR38XBA1 - Thinkpad Ricoh Integrated Camera Driver - CR >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LR38XBA1 - Thinkpad Ricoh Integrated Camera Driver - CR >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETOOLS\TPDEVPE.EXE /CM "VID_04F2&PID_B2DA"'
+ C:\SWWORK\WPETOOLS\TPDEVPE.EXE /CM "VID_04F2&PID_B2DA"
+ if not errorlevel 1 GOTO INSTALL
+diff -Naur original/SWWORK/LR38XBA1.CMD modified/SWWORK/LR38XBA1.CMD
+--- original/SWWORK/LR38XBA1.CMD	2019-03-06 22:05:54.791577580 -0900
++++ modified/SWWORK/LR38XBA1.CMD	2019-03-08 23:36:28.660562977 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LR38XBA1.CMD
+ 
+-ECHO Thinkpad Ricoh Integrated Camera Driver - CR >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Thinkpad Ricoh Integrated Camera Driver - CR >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR38XBA1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LR38YCA1.BAT modified/SWWORK/LR38YCA1.BAT
+--- original/SWWORK/LR38YCA1.BAT	2019-03-06 22:05:54.791577580 -0900
++++ modified/SWWORK/LR38YCA1.BAT	2019-03-08 23:34:45.586893887 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LR38YCA1 - Thinkpad Intel USB3.0 Driver CR >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LR38YCA1 - Thinkpad Intel USB3.0 Driver CR >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETOOLS\TPDEVPE.EXE /CM "VEN_8086&DEV_1E31"'
+ C:\SWWORK\WPETOOLS\TPDEVPE.EXE /CM "VEN_8086&DEV_1E31"
+ if not errorlevel 1 GOTO INSTALL
+diff -Naur original/SWWORK/LR38YCA1.CMD modified/SWWORK/LR38YCA1.CMD
+--- original/SWWORK/LR38YCA1.CMD	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LR38YCA1.CMD	2019-03-08 23:34:30.058642476 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LR38YCA1.CMD
+ 
+-ECHO Thinkpad Intel USB3.0 Driver CR >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Thinkpad Intel USB3.0 Driver CR >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR38YCA1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LR39G6A1.BAT modified/SWWORK/LR39G6A1.BAT
+--- original/SWWORK/LR39G6A1.BAT	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LR39G6A1.BAT	2019-03-08 23:34:19.710474939 -0900
+@@ -1,3 +1,4 @@
++GOTO END
+ MD C:\DRIVERS
+ MD C:\DRIVERS\Network\WIN32
+ MD C:\DRIVERS\Network\WINX64
+diff -Naur original/SWWORK/LR39L7A1.BAT modified/SWWORK/LR39L7A1.BAT
+--- original/SWWORK/LR39L7A1.BAT	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LR39L7A1.BAT	2019-03-08 23:34:10.258321913 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LR39L7A1 - Ericsson H5321gw Wireless WAN Driver >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LR39L7A1 - Ericsson H5321gw Wireless WAN Driver >> C:\SWWORK\MODULES.LOG
++GOTO END
+ :RECOG0
+ ? - ECHO Processing filter 'C:\SWWORK\WPETOOLS\TpDevPE /WWAN "VID_0BDB&PID_1926"'
+ C:\SWWORK\WPETOOLS\TpDevPE /WWAN "VID_0BDB&PID_1926"
+diff -Naur original/SWWORK/LR39L7A1.CMD modified/SWWORK/LR39L7A1.CMD
+--- original/SWWORK/LR39L7A1.CMD	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LR39L7A1.CMD	2019-03-08 23:33:58.990139493 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LR39L7A1.CMD
+ 
+-ECHO Ericsson H5321gw Wireless WAN Driver >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Ericsson H5321gw Wireless WAN Driver >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR39L7A1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LR39S3A1.BAT modified/SWWORK/LR39S3A1.BAT
+--- original/SWWORK/LR39S3A1.BAT	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LR39S3A1.BAT	2019-03-08 23:33:45.537921723 -0900
+@@ -1,7 +1,7 @@
+ rem MD C:\DRIVERS
+ rem MD C:\DRIVERS\Other
+ rem XCOPY /S /E /Y C:\SWTOOLS\DRIVERS\MONITOR C:\DRIVERS\Other
+-
++GOTO END
+ 
+ MD C:\SWTOOLS
+ MD C:\SWTOOLS\DRVSTORE
+diff -Naur original/SWWORK/LR39YAA1.BAT modified/SWWORK/LR39YAA1.BAT
+--- original/SWWORK/LR39YAA1.BAT	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LR39YAA1.BAT	2019-03-08 23:33:29.273658444 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LR39YAA1 - ThinkPad Intel AMT 8.0 driver (CPP) >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LR39YAA1 - ThinkPad Intel AMT 8.0 driver (CPP) >> C:\SWWORK\MODULES.LOG
++GOTO END
+ :RECOG0
+ ? - ECHO Processing filter 'C:\SWWORK\WPETools\PCI_PRES.EXE 8086 1E3A'
+ C:\SWWORK\WPETools\PCI_PRES.EXE 8086 1E3A
+diff -Naur original/SWWORK/LR39YAA1.CMD modified/SWWORK/LR39YAA1.CMD
+--- original/SWWORK/LR39YAA1.CMD	2019-03-06 22:05:54.779577321 -0900
++++ modified/SWWORK/LR39YAA1.CMD	2019-03-08 23:32:59.369174399 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LR39YAA1.CMD
+ 
+-ECHO ThinkPad Intel AMT 8.0 driver (CPP) >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkPad Intel AMT 8.0 driver (CPP) >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR39YAA1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LR3CV4A1.BAT modified/SWWORK/LR3CV4A1.BAT
+--- original/SWWORK/LR3CV4A1.BAT	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LR3CV4A1.BAT	2019-03-08 23:40:36.316574807 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LR3CV4A1 - ThinkPad Wireless WAN - UNDP WAN Modem - (GOBI4) >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LR3CV4A1 - ThinkPad Wireless WAN - UNDP WAN Modem - (GOBI4) >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETOOLS\TpDevPE /CM "VID_114F&PID_68A2"'
+ C:\SWWORK\WPETOOLS\TpDevPE /CM "VID_114F&PID_68A2"
+ if not errorlevel 1 GOTO INSTALL
+diff -Naur original/SWWORK/LR3CV4A1.CMD modified/SWWORK/LR3CV4A1.CMD
+--- original/SWWORK/LR3CV4A1.CMD	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LR3CV4A1.CMD	2019-03-08 23:40:20.064311481 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LR3CV4A1.CMD
+ 
+-ECHO ThinkPad Wireless WAN - UNDP WAN Modem - (GOBI4) >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkPad Wireless WAN - UNDP WAN Modem - (GOBI4) >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3CV4A1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LR3EZ1A2/setBIOSxx.cmd modified/SWWORK/LR3EZ1A2/setBIOSxx.cmd
+--- original/SWWORK/LR3EZ1A2/setBIOSxx.cmd	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LR3EZ1A2/setBIOSxx.cmd	2019-03-08 06:35:30.404016813 -0900
+@@ -1,3 +1,3 @@
+ rem This script make "OS Detection" function disable in BIOS for Switchable Graphics used in Win7
+-c:\windows\system32\cscript.exe setconfig.vbs OsDetectionForSwitchableGraphics Disable
++::c:\windows\system32\cscript.exe setconfig.vbs OsDetectionForSwitchableGraphics Disable
+ 
+diff -Naur original/SWWORK/LR3ICBA1.BAT modified/SWWORK/LR3ICBA1.BAT
+--- original/SWWORK/LR3ICBA1.BAT	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LR3ICBA1.BAT	2019-03-08 23:40:04.548060087 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LR3ICBA1 - Intel(R) Wireless Display (Windows 7) >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LR3ICBA1 - Intel(R) Wireless Display (Windows 7) >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETools\PCI_PRES 8086 4236'
+ C:\SWWORK\WPETools\PCI_PRES 8086 4236
+ if errorlevel 1 GOTO GFXCHK
+diff -Naur original/SWWORK/LR3ICBA1.CMD modified/SWWORK/LR3ICBA1.CMD
+--- original/SWWORK/LR3ICBA1.CMD	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LR3ICBA1.CMD	2019-03-08 23:39:49.111809994 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LR3ICBA1.CMD
+ 
+-ECHO Intel(R) Wireless Display (Windows 7) >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Intel(R) Wireless Display (Windows 7) >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3ICBA1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LR3SP4A1.BAT modified/SWWORK/LR3SP4A1.BAT
+--- original/SWWORK/LR3SP4A1.BAT	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LR3SP4A1.BAT	2019-03-08 23:39:17.227293431 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LR3SP4A1 - Registry Patch to Disable Instant Internet >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LR3SP4A1 - Registry Patch to Disable Instant Internet >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETOOLS\TpDevPE /CM "VID_114F&PID_68A2"'
+ C:\SWWORK\WPETOOLS\TpDevPE /CM "VID_114F&PID_68A2"
+ if not errorlevel 1 GOTO INSTALL
+diff -Naur original/SWWORK/LR3SP4A1.CMD modified/SWWORK/LR3SP4A1.CMD
+--- original/SWWORK/LR3SP4A1.CMD	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LR3SP4A1.CMD	2019-03-08 23:39:04.927094163 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LR3SP4A1.CMD
+ 
+-ECHO Registry Patch to Disable Instant Internet >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Registry Patch to Disable Instant Internet >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3SP4A1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LRBKG4A1.BAT modified/SWWORK/LRBKG4A1.BAT
+--- original/SWWORK/LRBKG4A1.BAT	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LRBKG4A1.BAT	2019-03-08 23:33:13.121396991 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LRBKG4A1 - PATCH - DisableAMT Profile Synchronization Pop-up in Windows 7 >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LRBKG4A1 - PATCH - DisableAMT Profile Synchronization Pop-up in Windows 7 >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETools\PCI_PRES 8086 4236'
+ C:\SWWORK\WPETools\PCI_PRES 8086 4236
+ if errorlevel 1 GOTO INSTALL
+diff -Naur original/SWWORK/LRBKG4A1.CMD modified/SWWORK/LRBKG4A1.CMD
+--- original/SWWORK/LRBKG4A1.CMD	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LRBKG4A1.CMD	2019-03-08 23:32:49.269010925 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LRBKG4A1.CMD
+ 
+-ECHO PATCH - DisableAMT Profile Synchronization Pop-up in Windows 7 >>C:\SWWORK\Modules.log
+-
++ECHO Not installing PATCH - DisableAMT Profile Synchronization Pop-up in Windows 7 >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LRBKG4A1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LRNQFFA1.BAT modified/SWWORK/LRNQFFA1.BAT
+--- original/SWWORK/LRNQFFA1.BAT	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LRNQFFA1.BAT	2019-03-08 23:32:34.720775468 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LRNQFFA1 - Intel Rapid Storage Technology Console >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not instaling ? Evaluating filters for LRNQFFA1 - Intel Rapid Storage Technology Console >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETools\PCI_PRES 0000 0000'
+ @REM C:\SWWORK\WPETools\PCI_PRES 0000 0000
+ @REM if errorlevel 1 GOTO INSTALL
+diff -Naur original/SWWORK/LRNQFFA1.CMD modified/SWWORK/LRNQFFA1.CMD
+--- original/SWWORK/LRNQFFA1.CMD	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LRNQFFA1.CMD	2019-03-08 23:32:23.136587992 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LRNQFFA1.CMD
+ 
+-ECHO Intel Rapid Storage Technology Console >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Intel Rapid Storage Technology Console >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LRNQFFA1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LRZMJLA1.BAT modified/SWWORK/LRZMJLA1.BAT
+--- original/SWWORK/LRZMJLA1.BAT	2019-03-06 22:05:54.779577321 -0900
++++ modified/SWWORK/LRZMJLA1.BAT	2019-03-08 23:32:08.736354953 -0900
+@@ -1,3 +1,4 @@
++GOTO END
+ MD C:\DRIVERS
+ MD C:\DRIVERS\Other
+ XCOPY /S /E /Y C:\SWTOOLS\DRIVERS\INTELINF\infinst_autol\WIN7 C:\DRIVERS\Other
+diff -Naur original/SWWORK/LS2BYHA1/PREPARE/install.cmd modified/SWWORK/LS2BYHA1/PREPARE/install.cmd
+--- original/SWWORK/LS2BYHA1/PREPARE/install.cmd	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LS2BYHA1/PREPARE/install.cmd	2019-03-08 06:48:32.532786388 -0900
+@@ -1,2 +1,2 @@
+ 
+-rundll32.exe setupapi.dll,InstallHinfSection DefaultInstall 132 %~dp0imsm_pre.inf
++:: rundll32.exe setupapi.dll,InstallHinfSection DefaultInstall 132 %~dp0imsm_pre.inf
+diff -Naur original/SWWORK/LS2BYHA1/PREPARE/uninstall.cmd modified/SWWORK/LS2BYHA1/PREPARE/uninstall.cmd
+--- original/SWWORK/LS2BYHA1/PREPARE/uninstall.cmd	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LS2BYHA1/PREPARE/uninstall.cmd	2019-03-08 06:48:37.820883579 -0900
+@@ -1,2 +1,2 @@
+ 
+-rundll32.exe setupapi.dll,InstallHinfSection DefaultUninstall 132 %~dp0imsm_pre.inf
++::rundll32.exe setupapi.dll,InstallHinfSection DefaultUninstall 132 %~dp0imsm_pre.inf
+diff -Naur original/SWWORK/LS2BYHA1.BAT modified/SWWORK/LS2BYHA1.BAT
+--- original/SWWORK/LS2BYHA1.BAT	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LS2BYHA1.BAT	2019-03-08 23:31:30.915742965 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LS2BYHA1 - Intel Rapid Storage Technology Driver >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LS2BYHA1 - Intel Rapid Storage Technology Driver >> C:\SWWORK\MODULES.LOG
++GOTO END
+ GOTO INSTALL
+ ECHO ? - Processing filter 'C:\SWWORK\WPETools\PCI_PRES 8086 2929'
+ C:\SWWORK\WPETools\PCI_PRES 8086 2929
+diff -Naur original/SWWORK/LS2BYHA1.CMD modified/SWWORK/LS2BYHA1.CMD
+--- original/SWWORK/LS2BYHA1.CMD	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LS2BYHA1.CMD	2019-03-08 23:31:13.531461697 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LS2BYHA1.CMD
+ 
+-ECHO Intel Rapid Storage Technology Driver >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Intel Rapid Storage Technology Driver >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LS2BYHA1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LS2KTJA1.BAT modified/SWWORK/LS2KTJA1.BAT
+--- original/SWWORK/LS2KTJA1.BAT	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LS2KTJA1.BAT	2019-03-08 23:31:03.067292401 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LS2KTJA1 - ThinkVantage Active Protection System -Source >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LS2KTJA1 - ThinkVantage Active Protection System -Source >> C:\SWWORK\MODULES.LOG
++GOTO END
+ :RECOG0
+ ? - ECHO Processing filter 'C:\SWWORK\ApsChk86.exe'
+ C:\SWWORK\ApsChk86.exe
+diff -Naur original/SWWORK/LS2KTJA1.CMD modified/SWWORK/LS2KTJA1.CMD
+--- original/SWWORK/LS2KTJA1.CMD	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LS2KTJA1.CMD	2019-03-08 23:30:28.350730794 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LS2KTJA1.CMD
+ 
+-ECHO ThinkVantage Active Protection System -Source >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkVantage Active Protection System -Source >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LS2KTJA1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LS2KU9A1.BAT modified/SWWORK/LS2KU9A1.BAT
+--- original/SWWORK/LS2KU9A1.BAT	2019-03-06 22:05:54.795577666 -0900
++++ modified/SWWORK/LS2KU9A1.BAT	2019-03-08 23:30:09.650428318 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LS2KU9A1 - ThinkVantage Active Protection System -Install >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LS2KU9A1 - ThinkVantage Active Protection System -Install >> C:\SWWORK\MODULES.LOG
++GOTO END
+ :RECOG0
+ ? - ECHO Processing filter 'C:\SWWORK\ApsChk86.exe'
+ C:\SWWORK\ApsChk86.exe
+diff -Naur original/SWWORK/LS2KU9A1.CMD modified/SWWORK/LS2KU9A1.CMD
+--- original/SWWORK/LS2KU9A1.CMD	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWWORK/LS2KU9A1.CMD	2019-03-08 23:29:52.150145277 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LS2KU9A1.CMD
+ 
+-ECHO ThinkVantage Active Protection System -Install >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkVantage Active Protection System -Install >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LS2KU9A1
+ 
+ :: REM MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LS39KFA1.BAT modified/SWWORK/LS39KFA1.BAT
+--- original/SWWORK/LS39KFA1.BAT	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWWORK/LS39KFA1.BAT	2019-03-08 23:28:18.048623776 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LS39KFA1 - ThinkPad Video Features (Chief River) >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LS39KFA1 - ThinkPad Video Features (Chief River) >> C:\SWWORK\MODULES.LOG
++GOTO END
+ C:\SWWORK\WPETools\tpdevpe /CM "PCI\VEN_8086&DEV_0106&SUBSYS_21F317AA"
+ if errorlevel 255 GOTO CHK001
+ GOTO INSTALL
+diff -Naur original/SWWORK/LS39KFA1.CMD modified/SWWORK/LS39KFA1.CMD
+--- original/SWWORK/LS39KFA1.CMD	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWWORK/LS39KFA1.CMD	2019-03-08 23:27:45.128091690 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LS39KFA1.CMD
+ 
+-ECHO ThinkPad Video Features (Chief River) >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkPad Video Features (Chief River) >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LS39KFA1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LS3QB2A1/Setup.bat modified/SWWORK/LS3QB2A1/Setup.bat
+--- original/SWWORK/LS3QB2A1/Setup.bat	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWWORK/LS3QB2A1/Setup.bat	2019-03-08 06:46:15.022536092 -0900
+@@ -1,9 +1,9 @@
+ @ECHO OFF
+ 
+ echo.
+-echo Installing drivers. Please wait.
++echo Not Installing drivers. Please wait.
+ echo.
+-
++GOTO END
+ :WAR
+ cd INTEL.INF
+ 
+diff -Naur original/SWWORK/LS3QB2A1.BAT modified/SWWORK/LS3QB2A1.BAT
+--- original/SWWORK/LS3QB2A1.BAT	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWWORK/LS3QB2A1.BAT	2019-03-08 23:29:36.497892147 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LS3QB2A1 - ThinkPad Video Features (NVIDIA NVS 5200M/5400M Optimus) >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LS3QB2A1 - ThinkPad Video Features (NVIDIA NVS 5200M/5400M Optimus) >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETools\tpdevpe /CM "PCI\VEN_10DE&DEV_0DEF&SUBSYS_21F417AA"'
+ C:\SWWORK\WPETools\tpdevpe /CM "PCI\VEN_10DE&DEV_0DEF&SUBSYS_21F417AA"
+ if NOT errorlevel 1 GOTO INSTALL
+diff -Naur original/SWWORK/LS3QB2A1.CMD modified/SWWORK/LS3QB2A1.CMD
+--- original/SWWORK/LS3QB2A1.CMD	2019-03-06 22:05:54.779577321 -0900
++++ modified/SWWORK/LS3QB2A1.CMD	2019-03-08 23:29:22.833671184 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LS3QB2A1.CMD
+ 
+-ECHO ThinkPad Video Features (NVIDIA NVS 5200M/5400M Optimus) >>C:\SWWORK\Modules.log
+-
++ECHO Not instaling ThinkPad Video Features (NVIDIA NVS 5200M/5400M Optimus) >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LS3QB2A1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LS3RI3A1/Setup.bat modified/SWWORK/LS3RI3A1/Setup.bat
+--- original/SWWORK/LS3RI3A1/Setup.bat	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWWORK/LS3RI3A1/Setup.bat	2019-03-08 06:45:56.750238307 -0900
+@@ -1,9 +1,9 @@
+ @ECHO OFF
+ 
+ echo.
+-echo Installing drivers. Please wait.
++echo Not Installing drivers. Please wait.
+ echo.
+-
++GOTO END
+ :WAR
+ cd INTEL.INF
+ 
+diff -Naur original/SWWORK/LS3RI3A1.BAT modified/SWWORK/LS3RI3A1.BAT
+--- original/SWWORK/LS3RI3A1.BAT	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWWORK/LS3RI3A1.BAT	2019-03-08 23:29:08.617441311 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LS3RI3A1 - ThinkPad Video Features (NVIDIA Quadro 1100M/2100M Optimus) >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not installing ? Evaluating filters for LS3RI3A1 - ThinkPad Video Features (NVIDIA Quadro 1100M/2100M Optimus) >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETools\tpdevpe /CM "PCI\VEN_10DE&DEV_0FFB&SUBSYS_21F517AA"'
+ C:\SWWORK\WPETools\tpdevpe /CM "PCI\VEN_10DE&DEV_0FFB&SUBSYS_21F517AA"
+ if NOT errorlevel 1 GOTO INSTALL
+diff -Naur original/SWWORK/LS3RI3A1.CMD modified/SWWORK/LS3RI3A1.CMD
+--- original/SWWORK/LS3RI3A1.CMD	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWWORK/LS3RI3A1.CMD	2019-03-08 23:28:46.465083149 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LS3RI3A1.CMD
+ 
+-ECHO ThinkPad Video Features (NVIDIA Quadro 1100M/2100M Optimus) >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkPad Video Features (NVIDIA Quadro 1100M/2100M Optimus) >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LS3RI3A1
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/LSTAK3A0.BAT modified/SWWORK/LSTAK3A0.BAT
+--- original/SWWORK/LSTAK3A0.BAT	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWWORK/LSTAK3A0.BAT	2019-03-08 23:27:26.195785743 -0900
+@@ -1,5 +1,5 @@
+-ECHO ? Evaluating filters for LSTAK3A0 - ThinkPad SmartCard Reader Driver >> C:\SWWORK\MODULES.LOG
+-
++ECHO Not instaling ? Evaluating filters for LSTAK3A0 - ThinkPad SmartCard Reader Driver >> C:\SWWORK\MODULES.LOG
++GOTO END
+ ECHO ? - Processing filter 'C:\SWWORK\WPETOOLS\TPDEVPE.EXE /CM "VID_17EF&PID_1003"'
+ C:\SWWORK\WPETOOLS\TPDEVPE.EXE /CM "VID_17EF&PID_1003"
+ if not errorlevel 1 GOTO INSTALL
+diff -Naur original/SWWORK/LSTAK3A0.CMD modified/SWWORK/LSTAK3A0.CMD
+--- original/SWWORK/LSTAK3A0.CMD	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWWORK/LSTAK3A0.CMD	2019-03-08 23:27:06.159461996 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\LSTAK3A0.CMD
+ 
+-ECHO ThinkPad SmartCard Reader Driver >>C:\SWWORK\Modules.log
+-
++ECHO Not instaling ThinkPad SmartCard Reader Driver >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LSTAK3A0
+ 
+ MD "C:\SWTOOLS"
+diff -Naur original/SWWORK/MFGCLEAN/cleanup.cmd modified/SWWORK/MFGCLEAN/cleanup.cmd
+--- original/SWWORK/MFGCLEAN/cleanup.cmd	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWWORK/MFGCLEAN/cleanup.cmd	2019-03-08 06:45:13.557534330 -0900
+@@ -1,4 +1,5 @@
+-ECHO CLEANUPCMD %TIME% >>C:\swtools\modules.log
++ECHO Not CLEANUPCMD %TIME% >>C:\swtools\modules.log
++GOTO END
+ REM HOOK1
+ if exist c:\windows\system32\bcdedit.exe bcdedit.exe /delete {5294fec2-9af8-11dd-9fa0-f9e85e02c230}
+ if exist C:\WINDOWS\CLNDR.CMD DEL C:\WINDOWS\CLNDR.CMD
+@@ -13,4 +14,5 @@
+ if exist C:\SWTOOLS\*.3BI DEL /Q C:\SWTOOLS\*.3BI
+ if exist c:\SWTOOLS\cleanup.lnk del c:\SWTOOLS\cleanup.lnk
+ if exist c:\SWTOOLS\cleanup.cmd del c:\SWTOOLS\cleanup.cmd
+-REM NOTHING BELOW - FILE IS GONE
+\ No newline at end of file
++REM NOTHING BELOW - FILE IS GONE
++:END
+\ No newline at end of file
+diff -Naur original/SWWORK/NETWORK/LS3S32A2.CMD modified/SWWORK/NETWORK/LS3S32A2.CMD
+--- original/SWWORK/NETWORK/LS3S32A2.CMD	2019-03-06 22:05:54.799577751 -0900
++++ modified/SWWORK/NETWORK/LS3S32A2.CMD	2019-03-08 06:44:27.764787879 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\network\LS3S32A2.CMD
+ 
+-ECHO ExpressCache >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ExpressCache >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LS3S32A2
+ 
+ PUSHD C:\SWTOOLS\APPS\ExpressCache
+diff -Naur original/SWWORK/OEMOffice14/en-us/oemsetup.en-us.bat modified/SWWORK/OEMOffice14/en-us/oemsetup.en-us.bat
+--- original/SWWORK/OEMOffice14/en-us/oemsetup.en-us.bat	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/OEMOffice14/en-us/oemsetup.en-us.bat	2019-03-08 06:43:46.512115340 -0900
+@@ -11,7 +11,7 @@
+ :: # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+ 
+ @echo off
+-
++GOTO END
+ setlocal
+ cls
+ 
+@@ -102,5 +102,5 @@
+ mkdir "%PROGRAMDATA%\Microsoft\OEMOffice14"
+ xcopy /e /c /i /q /h /y "%dir%Docs\CoConfig.xml" "%PROGRAMDATA%\Microsoft\OEMOffice14"
+ )
+-
++:END
+ exit /B 0
+\ No newline at end of file
+diff -Naur original/SWWORK/OEMOffice14/Office_2010_RTC_Replicator.cmd modified/SWWORK/OEMOffice14/Office_2010_RTC_Replicator.cmd
+--- original/SWWORK/OEMOffice14/Office_2010_RTC_Replicator.cmd	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/OEMOffice14/Office_2010_RTC_Replicator.cmd	2019-03-08 06:43:15.495609617 -0900
+@@ -1,4 +1,5 @@
+ @echo off
++GOTO END
+ REM -------------------------------------------------------------------------------------------------------
+ REM Version 1.0
+ REM -------------------------------------------------------------------------------------------------------
+@@ -169,3 +170,4 @@
+ SET Input=%Input:~1%
+ SET Reverse=%FirstChar%%Reverse%
+ GOTO Loop
++:END
+\ No newline at end of file
+diff -Naur original/SWWORK/OOBE/BALANCE.CMD modified/SWWORK/OOBE/BALANCE.CMD
+--- original/SWWORK/OOBE/BALANCE.CMD	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/OOBE/BALANCE.CMD	2019-03-08 06:49:26.101766381 -0900
+@@ -1,5 +1,5 @@
+ REM OOBECMD RESET BALANCED SCHEME
+-
++GOTO END
+ SET BALANCED=381b4222-f694-41f0-9685-ff5bb260df2e
+ SET SLEEP=238c9fa8-0aad-41ed-83f4-97be242c8f20
+ SET TIMER=29f6c1db-86da-48c5-9fdb-f2b67b1f44da
+@@ -17,3 +17,4 @@
+ SET TIMER=
+ SET DISPLAY=
+ SET TURNOFF=
++:END
+\ No newline at end of file
+diff -Naur original/SWWORK/OOBE/BCDCLEAN.CMD modified/SWWORK/OOBE/BCDCLEAN.CMD
+--- original/SWWORK/OOBE/BCDCLEAN.CMD	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/OOBE/BCDCLEAN.CMD	2019-03-08 06:49:56.502318244 -0900
+@@ -1,7 +1,8 @@
+ ECHO OFF
+-
++GOTO END
+ ECHO %TIME% BCD Cleanup >> c:\swwork\modules.log
+ SET WINPE_GUID={5294fec2-9af8-11dd-9fa0-f9e85e02c230}
+ bcdedit.exe /delete %WINPE_GUID% >>c:\swwork\modules.log
+ if errorlevel=1 ( ECHO BCD Cleanup Returned 1 - check above for reason >> c:\swwork\modules.log ) else ( ECHO BCDCLEAN Returned 0 - FINISHED SUCCESSFUL >> c:\swwork\modules.log )
+ SET WINPE_GUID=
++:END
+\ No newline at end of file
+diff -Naur original/SWWORK/OOBE/POWER.cmd modified/SWWORK/OOBE/POWER.cmd
+--- original/SWWORK/OOBE/POWER.cmd	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/OOBE/POWER.cmd	2019-03-08 06:50:37.007049084 -0900
+@@ -1,6 +1,7 @@
+ REM OOBECMD RESET CURRENT 
+-
++GOTO END
+ powercfg -change -standby-timeout-ac 20
+ powercfg -change -monitor-timeout-ac 10
+ powercfg -change -standby-timeout-dc 10
+-powercfg -change -monitor-timeout-dc 5
+\ No newline at end of file
++powercfg -change -monitor-timeout-dc 5
++:END
+\ No newline at end of file
+diff -Naur original/SWWORK/OS/dotNetFx40_Full.CMD modified/SWWORK/OS/dotNetFx40_Full.CMD
+--- original/SWWORK/OS/dotNetFx40_Full.CMD	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/OS/dotNetFx40_Full.CMD	2019-03-08 06:58:03.070852390 -0900
+@@ -1,6 +1,6 @@
+ :: REM CMD File Location = C:\SWWORK\OS\
+ CLS
+-
++GOTO END
+ SET PACKAGE=%~n0
+ 
+ ECHO Win7 %PACKAGE% install>>C:\SWWORK\Modules.log
+diff -Naur original/SWWORK/OS/LR3EZ1A2.CMD modified/SWWORK/OS/LR3EZ1A2.CMD
+--- original/SWWORK/OS/LR3EZ1A2.CMD	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/OS/LR3EZ1A2.CMD	2019-03-08 07:01:44.318616052 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\OS\LR3EZ1A2.CMD
+ 
+-ECHO Patch - Disable OS Detection for Switchable Graphics  CPP>>C:\SWWORK\Modules.log
+-
++ECHO Not installing Patch - Disable OS Detection for Switchable Graphics  CPP>>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3EZ1A2
+ 
+ PUSHD C:\SWWORK\LR3EZ1A2\
+diff -Naur original/SWWORK/OS/M7D002A.CMD modified/SWWORK/OS/M7D002A.CMD
+--- original/SWWORK/OS/M7D002A.CMD	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/OS/M7D002A.CMD	2019-03-08 07:02:29.907386207 -0900
+@@ -1,5 +1,5 @@
+ PUSHD C:\SWWORK\TOUCH 
+-
++GOTO END
+ :decide
+ if exist c:\swwork\touch.tag goto CHK2
+ ECHO M7D002A TOUCH NOT FOUND >>c:\swwork\modules.log
+diff -Naur original/SWWORK/OTHER/LR2ENPA1.CMD modified/SWWORK/OTHER/LR2ENPA1.CMD
+--- original/SWWORK/OTHER/LR2ENPA1.CMD	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/OTHER/LR2ENPA1.CMD	2019-03-08 06:54:49.079504127 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\Other\LR2ENPA1.CMD
+ 
+-ECHO ThinkPad PM Driver >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkPad PM Driver >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2ENPA1
+ 
+ IF EXIST C:\SWWORK\RECOVER.TAG GOTO END
+diff -Naur original/SWWORK/OTHER/LR2QH2A1.CMD modified/SWWORK/OTHER/LR2QH2A1.CMD
+--- original/SWWORK/OTHER/LR2QH2A1.CMD	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/OTHER/LR2QH2A1.CMD	2019-03-08 06:55:08.095834901 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\Other\LR2QH2A1.CMD
+ 
+-ECHO PATCH - Enable Maximum Power Saving on WiFi Adapters - >>C:\SWWORK\Modules.log
+-
++ECHO Not installing PATCH - Enable Maximum Power Saving on WiFi Adapters - >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR2QH2A1
+ 
+ PUSHD C:\SWTOOLS\DRIVERS\EnablePS\
+diff -Naur original/SWWORK/OTHER/LR39G6A1.CMD modified/SWWORK/OTHER/LR39G6A1.CMD
+--- original/SWWORK/OTHER/LR39G6A1.CMD	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/OTHER/LR39G6A1.CMD	2019-03-08 06:55:30.000215153 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\Other\LR39G6A1.CMD
+ 
+-ECHO ThinkPad Intel PRO/1000 LAN Adapter Software (CPP) >>C:\SWWORK\Modules.log
+-
++ECHO Not installing ThinkPad Intel PRO/1000 LAN Adapter Software (CPP) >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR39G6A1
+ 
+ IF EXIST C:\SWWORK\RECOVER.TAG GOTO END
+diff -Naur original/SWWORK/OTHER/LR3J7GA1.CMD modified/SWWORK/OTHER/LR3J7GA1.CMD
+--- original/SWWORK/OTHER/LR3J7GA1.CMD	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/OTHER/LR3J7GA1.CMD	2019-03-08 06:55:19.768037626 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\Other\LR3J7GA1.CMD
+ 
+-ECHO Lenovo Base Utility Package - >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Lenovo Base Utility Package - >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR3J7GA1
+ 
+ PUSHD C:\SWTOOLS\DRIVERS\HOTKEY\
+diff -Naur original/SWWORK/OTHER/LRZMJLA1.CMD modified/SWWORK/OTHER/LRZMJLA1.CMD
+--- original/SWWORK/OTHER/LRZMJLA1.CMD	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/OTHER/LRZMJLA1.CMD	2019-03-08 06:55:41.968422586 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\Other\LRZMJLA1.CMD
+ 
+-ECHO Intel Chipset Support >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Intel Chipset Support >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LRZMJLA1
+ 
+ IF EXIST C:\SWWORK\RECOVER.TAG GOTO END
+diff -Naur original/SWWORK/POWER/PWRPOL.BAT modified/SWWORK/POWER/PWRPOL.BAT
+--- original/SWWORK/POWER/PWRPOL.BAT	2019-03-06 22:05:54.775577236 -0900
++++ modified/SWWORK/POWER/PWRPOL.BAT	2019-03-08 06:54:18.182965340 -0900
+@@ -1,5 +1,5 @@
+ REM THINKPAD DEFAULT POWER SETTINGS Vista RTM
+-
++GOTO DONE
+ COPY C:\SWWORK\POWER\TPDEFUS.INI C:\SWWORK\POWER\PWRPOLV.INI /Y
+ 
+ REM *** Jump to language section ***
+diff -Naur original/SWWORK/SRV1/LR35A9A2.CMD modified/SWWORK/SRV1/LR35A9A2.CMD
+--- original/SWWORK/SRV1/LR35A9A2.CMD	2019-03-06 22:05:54.783577408 -0900
++++ modified/SWWORK/SRV1/LR35A9A2.CMD	2019-03-08 07:09:49.370750101 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\SRV1\LR35A9A2.CMD
+ 
+-ECHO IE favorite for Google PCR - Remove previous IE Favorite modules>>C:\SWWORK\Modules.log
+-
++ECHO Not installing IE favorite for Google PCR - Remove previous IE Favorite modules>>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR35A9A2
+ 
+ REM Erase previous content for Fileplus
+diff -Naur original/SWWORK/SRV2/IE90_WINDOWS_Update.CMD modified/SWWORK/SRV2/IE90_WINDOWS_Update.CMD
+--- original/SWWORK/SRV2/IE90_WINDOWS_Update.CMD	2019-03-06 22:05:54.783577408 -0900
++++ modified/SWWORK/SRV2/IE90_WINDOWS_Update.CMD	2019-03-08 07:09:34.506502337 -0900
+@@ -1,7 +1,7 @@
+ 
+ :: This batch file installs IE 90 Lang Pack 
+   
+- 
++GOTO END
+ 
+ SET MODNAME=M7DIE0A1
+ SET LANG=
+diff -Naur original/SWWORK/SRV3/B7DIE0A1.CMD modified/SWWORK/SRV3/B7DIE0A1.CMD
+--- original/SWWORK/SRV3/B7DIE0A1.CMD	2019-03-06 22:05:54.783577408 -0900
++++ modified/SWWORK/SRV3/B7DIE0A1.CMD	2019-03-08 07:09:17.594220352 -0900
+@@ -1,6 +1,6 @@
+ 
+ :: This batch file installs IE 90 Lang Pack 
+-  
++GOTO END  
+ 
+ 
+ SET MODNAME=B7IE0A1
+diff -Naur original/SWWORK/SRV3/themeset.cmd modified/SWWORK/SRV3/themeset.cmd
+--- original/SWWORK/SRV3/themeset.cmd	2019-03-06 22:05:54.783577408 -0900
++++ modified/SWWORK/SRV3/themeset.cmd	2019-03-08 07:09:05.266014741 -0900
+@@ -5,7 +5,7 @@
+ REM /* This product is property of Lenovo and may not be distributed outside Lenovo. */
+ 
+ pushd C:\ProgramData\Lenovo\Themes\
+-
++GOTO END
+ if exist c:\swwork\w732 goto win7_32
+ if exist c:\swwork\w764 goto win7_64
+ 
+diff -Naur original/SWWORK/SRV4/LR35A9A2.CMD modified/SWWORK/SRV4/LR35A9A2.CMD
+--- original/SWWORK/SRV4/LR35A9A2.CMD	2019-03-06 22:05:54.783577408 -0900
++++ modified/SWWORK/SRV4/LR35A9A2.CMD	2019-03-08 07:08:45.601686673 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\SRV4\LR35A9A2.CMD
+ 
+-ECHO IE favorite for Google PCR - Installation>>C:\SWWORK\Modules.log
+-
++ECHO Not installing IE favorite for Google PCR - Installation>>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR35A9A2
+ 
+ SET BRAND=
+diff -Naur original/SWWORK/SRV4/LR35B3A2.CMD modified/SWWORK/SRV4/LR35B3A2.CMD
+--- original/SWWORK/SRV4/LR35B3A2.CMD	2019-03-06 22:05:54.783577408 -0900
++++ modified/SWWORK/SRV4/LR35B3A2.CMD	2019-03-08 07:08:31.265447414 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\SRV4\LR35B3A2.CMD
+ 
+-ECHO Chrome Favorite >>C:\SWWORK\Modules.log
+-
++ECHO Not installing Chrome Favorite >>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=LR35B3A2
+ 
+ PUSHD C:\SWWORK\ChromeFavorite\
+diff -Naur original/SWWORK/SRV5/IE90_Update_US.CMD modified/SWWORK/SRV5/IE90_Update_US.CMD
+--- original/SWWORK/SRV5/IE90_Update_US.CMD	2019-03-06 22:05:54.783577408 -0900
++++ modified/SWWORK/SRV5/IE90_Update_US.CMD	2019-03-08 07:08:19.585252428 -0900
+@@ -1,7 +1,7 @@
+ 
+ :: This batch file installs IE 90 Lang Pack 
+   
+- 
++GOTO END 
+ 
+ SET MODNAME=M7DIE0A1
+ SET LANG=
+diff -Naur original/SWWORK/SRV5/OFFQFES.CMD modified/SWWORK/SRV5/OFFQFES.CMD
+--- original/SWWORK/SRV5/OFFQFES.CMD	2019-03-06 22:05:54.783577408 -0900
++++ modified/SWWORK/SRV5/OFFQFES.CMD	2019-03-08 07:08:04.256996466 -0900
+@@ -2,6 +2,6 @@
+ 
+ PUSHD C:\SWWORK
+ 
+-CALL C:\SWWORK\OFFQFE.CMD
++::CALL C:\SWWORK\OFFQFE.CMD
+ 
+ POPD
+diff -Naur original/SWWORK/SUITES/Office14setup.en-us.cmd modified/SWWORK/SUITES/Office14setup.en-us.cmd
+--- original/SWWORK/SUITES/Office14setup.en-us.cmd	2019-03-06 22:05:54.783577408 -0900
++++ modified/SWWORK/SUITES/Office14setup.en-us.cmd	2019-03-08 07:06:09.215072445 -0900
+@@ -1,7 +1,7 @@
+ :: REM CMD File Location = C:\SWWORK\Suites\Office14setup.en-us.cmd
+ 
+-ECHO Microsoft Office 2010 14.0 RC1>>C:\SWWORK\Modules.log
+-
++ECHO Not installing Microsoft Office 2010 14.0 RC1>>C:\SWWORK\Modules.log
++GOTO END
+ Set MODNAME=%MODNAME%
+ 
+ ::
+diff -Naur original/SWWORK/windvd10SD/setup.cmd modified/SWWORK/windvd10SD/setup.cmd
+--- original/SWWORK/windvd10SD/setup.cmd	2019-03-06 22:05:54.787577494 -0900
++++ modified/SWWORK/windvd10SD/setup.cmd	2019-03-08 07:05:43.322638604 -0900
+@@ -1,4 +1,5 @@
+ @ECHO On
++GOTO END
+ if exist "%programfiles%\intervideo\windvd\windvd.exe" goto end
+ if exist "%programfiles%\mediamatics\DVMatics\DVD\cdvdplay.exe" goto end
+ 
+diff -Naur original/SWWORK/x86/DRIVERS/dpinst.cmd modified/SWWORK/x86/DRIVERS/dpinst.cmd
+--- original/SWWORK/x86/DRIVERS/dpinst.cmd	2019-03-06 22:05:54.791577580 -0900
++++ modified/SWWORK/x86/DRIVERS/dpinst.cmd	2019-03-08 07:11:32.232462914 -0900
+@@ -1,4 +1,5 @@
+ @ ECHO OFF
++GOTO END
+ if not exist c:\drivers\dpinst.exe goto end
+ c:
+ cd \drivers
+diff -Naur original/SWWORK/ZDOWORK2/CHECKSKU.CMD modified/SWWORK/ZDOWORK2/CHECKSKU.CMD
+--- original/SWWORK/ZDOWORK2/CHECKSKU.CMD	2019-03-06 22:05:54.791577580 -0900
++++ modified/SWWORK/ZDOWORK2/CHECKSKU.CMD	2019-03-08 07:13:39.974586425 -0900
+@@ -1,3 +1,4 @@
++GOTO END
+ %windir%\system32\DISM.EXE /English /Online /Get-CurrentEdition >c:\swwork\edition.txt
+ 
+ IF EXIST C:\SWWORK\W7STARTER FIND /I "Starter" C:\SWWORK\EDITION.TXT
+diff -Naur original/SWWORK/ZDOWORK2/OA2CLN.CMD modified/SWWORK/ZDOWORK2/OA2CLN.CMD
+--- original/SWWORK/ZDOWORK2/OA2CLN.CMD	2019-03-06 22:05:54.791577580 -0900
++++ modified/SWWORK/ZDOWORK2/OA2CLN.CMD	2019-03-08 07:14:37.499541610 -0900
+@@ -1,5 +1,7 @@
+ @ECHO OFF
++GOTO END
+ REM CMD TO CLEAR OFF MRK FILES, TOOLS, AND OUR CERT
+ IF EXIST C:\SWWORK\SLP2 RD /S /Q c:\SWWORK\SLP2
+ REM REM REM IF EXIST C:\WINDOWS\SYSTEM32\OEM RD /S /Q C:\WINDOWS\SYSTEM32\OEM
++:END
+ @ECHO ON
+\ No newline at end of file
+diff -Naur original/SWWORK/ZDOWORK6/SETCLEAN.CMD modified/SWWORK/ZDOWORK6/SETCLEAN.CMD
+--- original/SWWORK/ZDOWORK6/SETCLEAN.CMD	2019-03-06 22:05:54.791577580 -0900
++++ modified/SWWORK/ZDOWORK6/SETCLEAN.CMD	2019-03-08 07:16:30.605418091 -0900
+@@ -1,6 +1,7 @@
+ md c:\Windows\util
++GOTO END
+ copy /y c:\swwork\turbo.exe c:\Windows\util
+ copy /y c:\swwork\numlock.exe c:\Windows\util
+ copy /y c:\swwork\num.cmd c:\windows\num.3bi
+ COPY /Y C:\WINDOWS\MFGCLEAN.CMD C:\Windows\MFGCLEAN.1BI
+-
++:END
